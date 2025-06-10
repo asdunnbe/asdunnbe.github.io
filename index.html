@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andrea Dunn Beltran | Portfolio</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <style>
+    html, body, h1, h2, h3, h4, h5, h6 {
+        font-family: "HelveticaNeue Light", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+        margin: 0; padding: 0; font-weight: 300;
+    }
+    body { background: #fff; }
+
+    p { font-size: 16px;
+        margin: 0.5rem 0; }
+
+
+    a {
+        text-decoration: none;
+        color: #2196F3;
+    }
+
+    .container { max-width: 980px; margin: 2rem auto; padding: 0 1rem; }
+    /* Sticky Navigation */
+    nav.w3-bar { position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #eaeaea; background: #fff; margin-bottom: 2rem; }
+    nav .w3-bar-item { font-weight: 400; }
+    nav .w3-right { margin-left: auto; font-size: 1rem; color: #2196F3; }
+    section { margin-bottom: 3rem; }
+    .profile-header { padding: 2rem 0; display: flex; justify-content: center; align-items: center; gap: 2rem; }
+    .profile-header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; font-weight: 400; color: #000; }
+    .profile-header img { width: 400px; height: auto; 
+        border-radius: 2%; 
+    }
+
+    /* Section titles centered */
+    h2{ text-align: center; }
+
+    /* Projects grid */
+    .projects-grid { display: flex; flex-wrap: wrap; margin: -0.95rem; }
+    .project-card { width: calc(33.333% - 1.5rem); margin: 0.75rem; padding: 0.5rem; background-color: #f4f4f4; border-radius: 8px; }
+    .project-card h3 { margin-top: 0; font-weight: 400; }
+    .project-card a { color: #2196F3; text-decoration: none; font-weight: 400; }
+    .project-card a:hover { text-decoration: underline; }
+
+    /* Papers table */
+    #papertitle
+    {
+        color: #2196F3;
+        font-size: 20px;
+        padding: 0px;
+        margin: 0px;
+        border: 0px;
+        border-collapse: collapse;
+    }
+    table.papers { width: 100%; border-collapse: separate; border-spacing: 0 1rem; }
+    .papers .thumbs { padding: 10px; width: 40%; vertical-align: middle; }
+    .papers .detail { padding: 10px; vertical-align: middle; }
+    .papers img.thumbs { width: 100%; height: auto; }
+    /* Footer */
+    footer { text-align: center; font-size: 0.875rem; color: #777; margin-top: 2rem; }
+  </style>
+</head>
+<body class="w3-white">
+  <div class="w3-content container" style="margin-bottom: 0rem;">
+    <!-- Sticky Navigation -->
+    <nav class="w3-bar w3-white w3-center">
+      <a href="#about" class="w3-bar-item w3-button" style="font-size:17px;">About</a>
+      <!-- <a href="#projects" class="w3-bar-item w3-button">Projects</a> -->
+      <a href="#papers" class="w3-bar-item w3-button" style="font-size:17px;">Papers</a>
+      <!-- <a href="#contact" class="w3-bar-item w3-button" style="font-size:17px;">Contact</a> -->
+      <div class="w3-bar-item w3-right" style="font-size:17px;">Andrea Dunn Beltran</div>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about" class="profile-header" style="margin-bottom: 0rem;"> 
+        <img src="andrea.jpg" alt="Andrea Dunn Beltran" class="about-img">
+        <div>
+            <h1><b>Andrea</b> Dunn Beltran</h1>
+            <!-- <h4>Master's student in Computer Science</h4> -->
+            <!-- <a style="font-size:18px;">UNC Chapel Hill</a> -->
+
+            <p>Hi! I'm a Master's student in Computer Science at <a href="https://cs.unc.edu">UNC Chapel Hill</a>, where I am currently researching 3D computer vision for medical imaging under the guidance of <a href="https://www.cs.unc.edu/~ronisen/" target="_blank">Prof. Roni Sengupta</a>.</p>
+
+            <p> My research focuses on leveraging 3D computer vision techniques to improve medical procedures and enhance patient care.
+                I work on developing methods for 3D scene reconstruction and synthetic dataset creation to improve the accuracy of real-world imaging applications, particularly in endoscopy. 
+                My goal is to apply these advancements in geometry to real-world applications, advancing healthcare diagnostics and driving innovation in robotics.            </p>
+            
+            <p>Previously, I obtained my B.Sc in Computer Science and Applied Mathematics from <a href="https://www.unc.edu">UNC Chapel Hill</a>. Additionally, I had the opportunity to serve as a visiting scholar through NSF-sponsored REU programs at <a href="https://www.rice.edu">Rice University</a> and the <a href="https://www.usc.edu">University of Southern California</a>.</p>
+        </div>
+    </section>
+
+    <div class="w3-center" style="margin-bottom: 4rem;">
+        <p>
+            <i class="fa fa-envelope"></i> <a href="mailto:asdunnbe@cs.unc.edu" style="margin-right: 15px;">asdunnbe@cs.unc.edu</a>
+            <i class="fa fa-linkedin-square"></i> <a href="www.linkedin.com/in/andrea-dunn-beltran" target="_blank" style="margin-right: 15px;">linkedin.com/in/andrea-dunn-beltran</a>
+            <i class="fa fa-file-pdf-o"></i> <a href="path_to_your_cv.pdf" target="_blank">CV</a>
+        </p>
+    </div>
+
+
+    <!-- <section id="projects">
+        <hr>
+        <div class="w3-center">
+            <h2>Projects</h2>
+        </div>
+        <div class="projects-grid">
+        <div class="w3-card w3-hover-shadow project-card">
+          <h3>Project Title 1 <i class="fa fa-code"></i></h3>
+          <p>Brief description of the project, technologies used, and impact.</p>
+          <p><a href="https://github.com/yourusername/project1" target="_blank">View on GitHub</a></p>
+        </div>
+        <div class="w3-card w3-hover-shadow project-card">
+          <h3>Project Title 2 <i class="fa fa-database"></i></h3>
+          <p>Brief description of the project, technologies used, and impact.</p>
+          <p><a href="https://github.com/yourusername/project2" target="_blank">View on GitHub</a></p>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- Papers Section -->
+    <section id="papers">
+        <hr>
+        <div class="w3-center">
+            <h2>Papers</h2>
+        </div>
+
+      <table class="papers" width="100%" align="center" border="0" cellspacing="0" cellpadding="40">
+        <tbody>
+            <tr>
+                <td class="thumbs"><img class="thumbs" src="paper_images/nflba.png" alt="NFL-BA"></td>
+                <td class="detail">
+                <p style="font-size:17px;"><b id="papertitle">NFL-BA: Improving Endoscopic SLAM with Near-Field Light Bundle Adjustment</b><br>
+                <b><i>Andrea Dunn Beltran</i></b>, Daniel Rho, Marc Niethammer, Roni Sengupta<br>
+                <i>Under Review</i><br>
+                [<a href="https://arxiv.org/abs/2412.13176" target="_blank">Paper</a>]
+                [<a href="https://asdunnbe.github.io/NFL-BA/" target="_blank">Project Page</a>]
+                </p>
+                <p style="font-size:15px;"><i>We introduce a Bundle Adjustment loss using lighting cues to improve pose and map estimation in dense visual SLAM for endoscopy.</i></p>
+                </td>
+            </tr>
+
+
+            <tr>
+            <td class="thumbs"><img class="thumbs" src="paper_images/pps-ctrl.png" alt="PPS-Ctrl"></td>
+            <td class="detail">
+              <p style="font-size:17px;"><b id="papertitle">PPS-Ctrl: Controllable Sim-to-Real Translation for Colonoscopy Depth Estimation</b><br>
+              Xinqi (Ana) Xiong, <b><i>Andrea Dunn Beltran</i></b>, Jun Myeong Choi, Marc Niethammer, Roni Sengupta<br>
+              <i>Under Review</i><br>
+              [<a href="https://arxiv.org/abs/2504.17067" target="_blank">Paper</a>]
+              <!-- [<a href="https://github.com/anaxqx/PPS-Ctrl" target="_blank">Project Page</a>] -->
+              </p>
+              <p style="font-size:15px;"><i>PPS-Ctrl fuses Stable Diffusion and ControlNet, guided by physics-informed shading for structure-preserving endoscopy image translation.</i></p>
+            </td>
+            </tr>
+
+          
+            <tr>
+                <td class="thumbs"><img class="thumbs" src="paper_images/vin.png" alt="VIN"></td>
+                <td class="detail">
+                <p style="font-size:17px;"><b id="papertitle">VIN-NBV: A View Introspection Network for Next-Best-View Selection for Resource-Efficient 3D Reconstruction</b><br>
+                Noah Frahm, Dongxu Zhao*, <b><i>Andrea Dunn Beltran*</i></b>,  Ron Alterovitz,  Jan-Michael Frahm,  Junier Oliva,  Roni Sengupta<br>
+                <i>Under Review</i><br>
+                [<a href="https://arxiv.org/abs/2505.06219" target="_blank">Paper</a>]
+                [<a href="https://noahfrahm.github.io/VIN-NBVProjectPage/" target="_blank">Project Page</a>]
+                </p>
+                <p style="font-size:15px;"><i>The VIN predicts reconstruction-quality gains for candidate views using 3D-aware features to improve 3D scene reconstruction.</i></p>
+                </td>
+            </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Contact Section
+    <section id="contact">
+        <hr>
+      <h2>Contact</h2>
+      <p><i class="fa fa-envelope"></i> <a href="mailto:asdunnbe@cs.unc.edu">asdunnbe@cs.unc.edu</a></p>
+    </section> -->
+
+    <!-- Footer -->
+    <footer>
+        <hr>
+      <p>&copy; 2025 Andrea Dunn Beltran. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>
+
