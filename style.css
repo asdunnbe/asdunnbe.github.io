@@ -1,0 +1,241 @@
+:root {
+    --primary-blue: #2196F3;
+    --hover-blue: #2195f313;
+    --hover-blue-2: #2195f391;
+}
+
+html, body, h1, h2, h3, h4, h5, h6 {
+    font-family: "HelveticaNeue Light","HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+    margin: 0; padding: 0; font-weight: 300;
+}
+body { background: #fff; }
+
+p { font-size: 17px; margin: .5rem 0; }
+a {
+    text-decoration: none;
+    color: var(--primary-blue);
+}
+a:hover {
+    color:  var(--hover-blue-2);
+}
+
+.container {
+    max-width: 70%;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.w3-content.container {
+  padding-top: 3.5rem;   /* adjust to match nav height */
+}
+
+/* Sticky Navigation */
+nav.w3-bar {
+  z-index: 100;        /* ← higher than your cards’ stacking context */
+  position:  fixed;
+  max-width: 70%;
+  left: 50%;
+  transform: translateX(-50%);  top: 0;
+  border-bottom: 1px solid #eaeaea;
+  background: #fff;
+  margin-bottom: 2rem;
+}
+
+nav .w3-bar-item { font-weight: 400; }
+nav .w3-right { margin-left: auto; font-size: 1rem; color: var(--primary-blue); }
+nav .w3-right:hover {
+    background-color: transparent!important;
+    color: var(--hover-blue-2)!important;
+}
+nav .w3-bar-item.w3-button:hover {
+    background-color: transparent!important;
+    color: var(--primary-blue)!important;
+}
+
+/* Default nav link */
+nav .w3-bar-item.active {
+  color: var(--primary-blue);
+}
+
+/* Hover on active link */
+nav .w3-bar-item.active:hover {
+  color: var(--hover-blue-2) !important;
+}
+
+/* Dimmed active when another is hovered */
+nav .w3-bar-item.active.dimmed {
+  color: var(--hover-blue-2) !important;
+}
+
+/* Hover on non-active */
+nav .w3-bar-item:not(.active):hover {
+  color: var(--primary-blue) !important;
+}
+
+/* Hover on active itself */
+nav .w3-bar-item.active:hover {
+  color: var(--hover-blue-2) !important;
+}
+
+
+
+section { margin-bottom: 3rem; }
+
+/* Profile Header */
+.profile-header { padding: 2rem 0; display: flex; justify-content: center; align-items: center; gap: 2rem; }
+.profile-header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; font-weight: 400; color: #000; }
+.profile-header img { width: 40%; height: auto; 
+    border-radius: 4%; 
+}
+
+/* Section titles */
+h2 { font-size: 35px; text-align: center; }
+
+/* Projects grid */
+.projects-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+/* Flip-card container */
+.project-card {
+    perspective: 1000px;
+    width: calc(33.333% - 1rem);
+    max-width: 300px;
+}
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;     /* square */
+    transition: transform .6s;
+    transform-style: preserve-3d;
+}
+.project-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Faces */
+.flip-card-front,
+.flip-card-back {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%;
+    backface-visibility: hidden;
+    border-radius: 4%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    background-color: var(--hover-blue);
+    transition: background-color .3s;
+}
+
+/* Hover highlight */
+.project-card:hover .flip-card-front,
+/* .project-card:hover .flip-card-back {
+    background-color: var(--hover-blue);
+} */
+
+/* Front: image only */
+.flip-card-front img {
+    width: 95%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 4%;
+}
+.flip-card-front h4 { display: none; }
+
+/* Back: title, desc, links */
+.flip-card-back {
+    transform: rotateY(180deg);
+    text-align: center;
+}
+.flip-card-back h4 {
+    margin: 0 0 .5rem;
+    font-weight: 400;
+    color: var(--primary-blue);
+}
+.flip-card-back .links {
+    display: flex;
+    gap: 1rem;
+    margin-top: auto;
+}
+.flip-card-back .links a {
+    color: var(--primary-blue);
+    text-decoration: none;
+    font-weight: 400;
+}
+.flip-card-back .links a:hover {
+    color: var(--hover-blue);
+}
+
+/* Papers table */
+#papertitle {
+    color: var(--primary-blue);
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+}
+table.papers {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 1rem;
+}
+.papers .thumbs {
+    padding: 10px;
+    width: 40%;
+    vertical-align: middle;
+}
+.papers .detail {
+    padding: 10px;
+    vertical-align: middle;
+}
+.papers img.thumbs {
+    width: 100%;
+    height: auto;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    font-size: .875rem;
+    color: #777;
+    margin-top: 2rem;
+}
+
+
+/* Photo gallery */
+/* Photo gallery */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);  /* always 3 columns */
+  gap: 0.5rem;                            /* gap between cells */
+  grid-auto-flow: row dense;
+}
+
+.photo-item {
+  overflow: hidden;                       /* crop overflow if any */
+}
+
+.photo-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;                      /* fill container, maintain ratio */
+  border-radius: 2%;                      /* optional rounding */
+}
+
+/* Any landscape photo spans two cols */
+/* Landscapes on the left span cols 1–2 */
+.photo-item.land-left {
+  grid-column: 1 / span 2;
+}
+
+/* Landscapes on the right span cols 2–3 */
+.photo-item.land-right {
+  grid-column: 2 / span 2;
+}
+

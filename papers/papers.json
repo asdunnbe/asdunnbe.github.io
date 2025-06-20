@@ -1,0 +1,52 @@
+[
+  {
+    "title": "NFL-BA: Improving Endoscopic SLAM with Near-Field Light Bundle Adjustment",
+    "authors": "Andrea Dunn Beltran, Daniel Rho, Marc Niethammer, Roni Sengupta",
+    "status": "Under Review",
+    "summary": "We introduce a Bundle Adjustment loss using lighting cues to improve pose and map estimation in dense visual SLAM for endoscopy.",
+    "img": "paper_images/nflba.png",
+    "links": [
+      { "url": "https://arxiv.org/abs/2412.13176", "label": "Paper" },
+      { "url": "https://asdunnbe.github.io/NFL-BA/", "label": "Project Page" }
+    ],
+    "type": "preprint",
+    "featured": true
+  },
+  {
+    "title": "PPS-Ctrl: Controllable Sim-to-Real Translation for Colonoscopy Depth Estimation",
+    "authors": "Xinqi (Ana) Xiong, Andrea Dunn Beltran, Jun Myeong Choi, Marc Niethammer, Roni Sengupta",
+    "status": "Under Review",
+    "summary": "PPS-Ctrl fuses Stable Diffusion and ControlNet, guided by physics-informed shading for structure-preserving endoscopy image translation.",
+    "img": "paper_images/pps-ctrl.png",
+    "links": [
+      { "url": "https://arxiv.org/abs/2504.17067", "label": "Paper" }
+    ],
+    "type": "preprint",
+    "featured": true
+  },
+  {
+    "title": "VIN-NBV: A View Introspection Network for Next-Best-View Selection for Resource-Efficient 3D Reconstruction",
+    "authors": "Noah Frahm, Dongxu Zhao*, Andrea Dunn Beltran*, Ron Alterovitz, Jan-Michael Frahm, Junier Oliva, Roni Sengupta",
+    "status": "Under Review",
+    "summary": "The VIN predicts reconstruction-quality gains for candidate views using 3D-aware features to improve 3D scene reconstruction.",
+    "img": "paper_images/vin.png",
+    "links": [
+      { "url": "https://arxiv.org/abs/2505.06219", "label": "Paper" },
+      { "url": "https://noahfrahm.github.io/VIN-NBVProjectPage/", "label": "Project Page" }
+    ],
+    "type": "preprint",
+    "featured": false
+  },
+  {
+    "title": "Modulation of tau tubulin kinases (TTBK1 and TTBK2) impacts ciliogenesis",
+    "authors": "Frances Bashore, Ariana Marquez, Apirat Chaikuad, Stefanie Howell, Andrea Dunn, Alvaro Beltran, Jeffery Smith, David Drewry, Adriana Beltran & Alison Axtman" ,
+    "status": "Nature Scientific Reports 2023",
+    "summary": "We designed a targeted library and identified chemical tools that engage TTBK1/2 and inhibit their downstream signaling.",
+    "img": "paper_images/ttbk.png",
+    "links": [
+      { "url": "https://www.nature.com/articles/s41598-023-32854-4", "label": "Paper" }
+    ],
+    "type": "published",
+    "featured": false
+  }
+]

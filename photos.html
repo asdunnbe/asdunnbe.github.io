@@ -1,0 +1,40 @@
+<!-- photos.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Andrea Dunn Beltran – Photos</title>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="w3-white">
+  <!-- Navigation -->
+  <div id="nav-container"></div>
+  
+  <div class="w3-content container">
+
+    <section id="gallery">
+      <div class="w3-center"><h2>Photo Gallery</h2></div>
+
+      <div style="margin: 20px;"></div>
+      <p>Outside the lab, I enjoy capturing moments from my travels and everyday life. Here are a some of my favorite recent pics!</p>
+      <div style="margin: 20px;"></div>
+
+      <div id="photoGrid" class="photo-grid"></div>
+    </section>
+
+    <footer>
+      <hr>
+      <p>&copy; 2025 Andrea Dunn Beltran. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script src="site.js"></script>
+  <script>
+    loadNavigation();
+    loadPhotoGallery('gallery/', 25, '.png')
+  </script>
+</body>
+</html>

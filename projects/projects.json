@@ -1,0 +1,64 @@
+[
+  {
+    "title": "4D Reconstructions for Bronchoscopies",
+    "img": "project_images/bronch.png",
+    "desc": "We are creating a synthetic dataset of bronchoscopic videos in dynamically breathing lung models and designing a 4D reconstruction pipeline that leverages geometric deformation cues and temporal alignment",
+    "links": [{ "url": "", "label": "Coming soon!" }],
+    "featured": true
+  },
+  {
+    "title": "Improving Endoscopic SLAM with NFL-BA",
+    "img": "project_images/colon.png",
+    "desc": "NFL-BA augments dense visual SLAM for endoscopy by integrating near-field lighting cues into the bundle adjustment objective, improving pose tracking accuracy by +30% with predicted depths and achieving state-of-the-art results on the C3VD dataset.",
+    "links": [
+      { "url": "https://arxiv.org/abs/2412.13176", "label": "Paper" },
+      { "url": "projects/documents/POSTER-CVPR-new.pdf", "label": "Poster" }
+    ],
+    "featured": true
+  },
+  {
+    "title": "Controllable Sim-to-Real Translation for Colonoscopy",
+    "img": "project_images/depth.png",
+    "desc": "PPS-Ctrl conditions a Stable Diffusion model with ControlNet on Per-Pixel Shading representations to enforce lighting-consistent structure, producing more photorealistic sim-to-real colonoscopy translations and enhancing depth estimation accuracy.",
+    "links": [{ "url": "https://arxiv.org/abs/2504.17067", "label": "Paper" }],
+    "featured": false
+  },
+  {
+    "title": "Next-Best-View Selection for Resource-Efficient 3D Reconstruction",
+    "img": "project_images/nbv.png",
+    "desc": "Our View Inference Network encodes partial 3D reconstructions and predicts the most informative next viewpoints, improving reconstruction quality by roughly 30% compared to coverage-based baselines under acquisition and motion constraints.",
+    "links": [{ "url": "https://arxiv.org/abs/2505.06219", "label": "Paper" }],
+    "featured": false
+  },
+  {
+    "title": "Reinforcement Learning for the Toyota HSR",
+    "img": "project_images/hsr.png",
+    "desc": "We built Gazebo/OpenAI Gym environments for the Toyota HSR and apply reinforcement learning with temporal-logic constraints, yielding policies that reliably satisfy assistive-task specifications and safety requirements on the robot platform.",
+    "links": [
+      { "url": "projects/documents/Reinforcement Learning for the Toyota HSR.pdf", "label": "Presentation" },
+      { "url": "https://drive.google.com/file/d/1YNsfBvBVcyjkzrk7l20o19Yqb2wn1k8z/view?usp=share_link", "label": "Demo" }
+    ],
+    "featured": false
+  },
+  {
+    "title": "Online Learning for Multi-Label Medical Images",
+    "img": "project_images/online-xray.png",
+    "desc": "We extend CNN architectures with stability-enhancing update rules and dynamic sampling to tackle highly imbalanced multi-label medical image streams in an online learning setting, maintaining accuracy and robustness during continuous model updates.",
+    "links": [{ "url": "projects/documents/rice-poster.pdf", "label": "Poster" }],
+    "featured": false
+  },
+  {
+    "title": "Modulation of TTBK1 and TTBK2 Impacts Ciliogenesis",
+    "img": "project_images/dapi.png",
+    "desc": "We tackled how two kinases, TTBK1 and TTBK2, regulate the assembly and length of primary cilia—a key organelle in cell signaling. I gained hands-on experience in immunofluorescent staining, fluorescence microscopy, image analysis, and creating quantification pipelines.",
+    "links": [{ "url": "https://www.nature.com/articles/s41598-023-32854-4", "label": "Paper" }],
+    "featured": false
+  },
+  {
+    "title": "BAZ2/BRD9 Bromodomain Inhibitor Induces Apoptosis in Triple-Negative Breast Cancer",
+    "img": "project_images/brac.png",
+    "desc": "We tested whether BAZ2/BRD9 inhibition induces apoptosis in TNBC cells. I assisted with culture and drug treatments and gained skills in western blotting, gel electrophoresis, plasmid prep, and bacterial transformation.",
+    "links": [{ "url": "https://pubmed.ncbi.nlm.nih.gov/31000582/", "label": "Paper" }],
+    "featured": false
+  }
+]
