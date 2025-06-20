@@ -24,7 +24,7 @@
     "featured": false
   },
   {
-    "title": "Next-Best-View Selection for Resource-Efficient 3D Reconstruction",
+    "title": "NBV Selection for Resource-Efficient 3D Reconstruction",
     "img": "project_images/nbv.png",
     "desc": "Our View Inference Network encodes partial 3D reconstructions and predicts the most informative next viewpoints, improving reconstruction quality by roughly 30% compared to coverage-based baselines under acquisition and motion constraints.",
     "links": [{ "url": "https://arxiv.org/abs/2505.06219", "label": "Paper" }],
