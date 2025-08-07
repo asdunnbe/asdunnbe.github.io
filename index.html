@@ -8,33 +8,89 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
+<style>
+  .profile-header {
+  display: grid;
+  grid-template-columns: 35% 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "image text"
+    "contact text";
+  gap: 2rem;
+  padding: 0;
+}
+
+/* Desktop placement */
+.profile-header .name-block {
+  /* spans full width above everything */
+  grid-column: 1 / -1;
+}
+.profile-header .about-img {
+  grid-area: image;
+  width: 100%;
+  height: auto;
+}
+.profile-header .contact-info {
+  grid-area: contact;
+}
+.profile-header .text-block {
+  grid-area: text;
+}
+
+/* Mobile override (<800px) */
+@media (max-width: 800px) {
+  .profile-header {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto 1fr;
+    grid-template-areas:
+      "image contact"
+      "text text";
+  }
+
+  /* ensure image fills its cell */
+  .profile-header .about-img {
+    width: 100%;
+  }
+}
+
+
+</style>
 <body class="w3-white">
   <!-- Navigation -->
   <div id="nav-container"></div>
 
   <div class="w3-content container">
     <!-- About Section -->
-    <section id="about" class="profile-header" style="display: grid; grid-template-columns: 35% 1fr; grid-template-rows: auto 0fr; gap: 2rem; padding: 0em 0;">
-        <img src="andrea.jpg" alt="Andrea Dunn Beltran" class="about-img" style="margin-top:2rem; width:100%; height:auto; grid-row:1/2;">
+    <section id="about" class="profile-header">
 
-        <div class="w3-content" style="grid-row: 2 / 3;">
-            <p>
-                <i class="fa fa-envelope"></i> <a href="mailto:asdunnbe@cs.unc.edu" style="margin-right: 15px;">asdunnbe@cs.unc.edu</a><br>
-                <i class="fa fa-linkedin-square"></i> <a href="https://www.linkedin.com/in/andrea-dunn-beltran" target="_blank" style="margin-right: 15px;">andrea-dunn-beltran</a><br>
-                <i class="fa fa-file-pdf-o"></i> <a href="AndreaDunnBeltran_CV.pdf" target="_blank">CV</a>
-            </p>
-        </div>
+      <!-- Profile image -->
+      <img src="andrea.jpg" alt="Andrea Dunn Beltran" class="about-img">
 
-        <div style="grid-row: 1 / 3; text-align: left;">
-            <h1 style="font-size: 40px; margin-bottom: 1.0rem;"><b>Andrea</b> Dunn Beltran</h1>
-            <p>Hi! I'm a Master's student in Computer Science at <a href="https://cs.unc.edu">UNC Chapel Hill</a>, researching 3D computer vision under the guidance of <a href="https://www.cs.unc.edu/~ronisen/" target="_blank">Professor Roni Sengupta</a>.</p>
+      <!-- Contact info -->
+      <div class="contact-info; w3-content">
+        <p>
+          <i class="fa fa-envelope"></i>
+          <a href="mailto:asdunnbe@cs.unc.edu">asdunnbe@cs.unc.edu</a><br>
+          <i class="fa fa-linkedin-square"></i>
+          <a href="https://www.linkedin.com/in/andrea-dunn-beltran" target="_blank">andrea-dunn-beltran</a><br>
+          <i class="fa fa-file-pdf-o"></i>
+          <a href="AndreaDunnBeltran_CV.pdf" target="_blank">CV</a>
+        </p>
+      </div>
 
-            <p>My research focuses on leveraging 3D computer vision techniques to improve medical procedures and enhance patient care. I work on developing methods for 3D scene reconstruction and synthetic dataset creation to improve the accuracy of real-world imaging applications, particularly in endoscopy. My goal is to apply these advancements in geometry to real-world applications, advancing healthcare diagnostics and driving innovation in robotics.</p>
+      <!-- Bio paragraphs -->
+      <div class="text-block">
+        <h1 style="font-size: 40px; margin-bottom: 1.0rem;"><b>Andrea</b> Dunn Beltran</h1>
 
-            <p>Previously, I obtained my B.Sc in Computer Science and Applied Mathematics from <a href="https://www.unc.edu">UNC Chapel Hill</a>. Additionally, I had the opportunity to serve as a visiting scholar through NSF-sponsored REU programs at <a href="https://www.rice.edu">Rice University</a> and the <a href="https://www.usc.edu">University of Southern California</a>.</p>
+        <p>Hi! I'm a Master's student in Computer Science at <a href="https://cs.unc.edu">UNC Chapel Hill</a>, researching 3D computer vision under the guidance of <a href="https://www.cs.unc.edu/~ronisen/" target="_blank">Professor Roni Sengupta</a>.</p>
+
+        <p>My research focuses on leveraging 3D computer vision techniques to improve medical procedures and enhance patient care. I work on developing methods for 3D scene reconstruction and synthetic dataset creation to improve the accuracy of real-world imaging applications, particularly in endoscopy. My goal is to apply these advancements in geometry to real-world applications, advancing healthcare diagnostics and driving innovation in robotics.</p>
+
+        <p>Previously, I obtained my B.Sc in Computer Science and Applied Mathematics from <a href="https://www.unc.edu">UNC Chapel Hill</a>. Additionally, I had the opportunity to serve as a visiting scholar through NSF-sponsored REU programs at <a href="https://www.rice.edu">Rice University</a> and the <a href="https://www.usc.edu">University of Southern California</a>.</p>
+        
+        <p>Outside the lab, I enjoy traveling, <a href="photos.html">photography</a>, and hiking. I’m also learning to play bass guitar!</p>
             
-            <p>Outside the lab, I enjoy traveling, <a href="photos.html">photography</a>, and hiking. I’m also learning to play bass guitar!</p>
-        </div>
+      </div>
     </section>
 
     <!-- Featured Projects -->

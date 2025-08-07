@@ -40,6 +40,19 @@
     ],
     "featured": false
   },
+
+  {
+    "title": "Improving Colonoscopy Reconstruction",
+    "img": "project_images/blue.png",
+    "desc": "I performed preliminary analysis on a CNN SLAM which utilized depth and normals cues. Also explored how optical flow and reflectance cues can be used to improve reconstunctions, especially under blue light.",
+
+    "links": [
+      { "url": "projects/documents/BlueLight.pdf", "label": "Presentation" },
+      { "url": "projects/documents/COMP495_Report.pdf", "label": "Paper" }
+    ],
+    "featured": false
+  },
+
   {
     "title": "Online Learning for Multi-Label Medical Images",
     "img": "project_images/online-xray.png",

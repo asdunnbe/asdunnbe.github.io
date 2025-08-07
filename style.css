@@ -101,9 +101,7 @@ h2 { font-size: 35px; text-align: center; }
 
 /* Flip-card container */
 .project-card {
-    perspective: 1000px;
-    width: calc(33.333% - 1rem);
-    max-width: 300px;
+    width: 300px;
 }
 .flip-card-inner {
     position: relative;
@@ -136,9 +134,6 @@ h2 { font-size: 35px; text-align: center; }
 
 /* Hover highlight */
 .project-card:hover .flip-card-front,
-/* .project-card:hover .flip-card-back {
-    background-color: var(--hover-blue);
-} */
 
 /* Front: image only */
 .flip-card-front img {

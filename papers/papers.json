@@ -22,7 +22,7 @@
       { "url": "https://arxiv.org/abs/2504.17067", "label": "Paper" }
     ],
     "type": "preprint",
-    "featured": true
+    "featured": false
   },
   {
     "title": "VIN-NBV: A View Introspection Network for Next-Best-View Selection for Resource-Efficient 3D Reconstruction",
