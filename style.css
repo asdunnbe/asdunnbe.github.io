@@ -20,7 +20,7 @@ a:hover {
 }
 
 .container {
-    max-width: 70%;
+    max-width: 990px;
     margin: 2rem auto;
     padding: 0 1rem;
 }
@@ -33,7 +33,7 @@ a:hover {
 nav.w3-bar {
   z-index: 100;        /* ← higher than your cards’ stacking context */
   position:  fixed;
-  max-width: 70%;
+  max-width: 1000px;
   left: 50%;
   transform: translateX(-50%);  top: 0;
   border-bottom: 1px solid #eaeaea;

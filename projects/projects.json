@@ -2,7 +2,7 @@
   {
     "title": "4D Reconstructions for Bronchoscopies",
     "img": "project_images/bronch.png",
-    "desc": "We are creating a synthetic dataset of bronchoscopic videos in dynamically breathing lung models and designing a 4D reconstruction pipeline that leverages geometric deformation cues and temporal alignment",
+    "desc": "We are creating a synthetic dataset of bronchoscopic videos in dynamically breathing lung models and designing a 4D reconstruction pipeline that leverages geometric deformation cues and temporal alignment.",
     "links": [{ "url": "", "label": "Coming soon!" }],
     "featured": true
   },
