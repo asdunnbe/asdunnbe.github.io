@@ -1,3 +1,54 @@
+const THEME_STORAGE_KEY = 'theme';
+
+/* Apply initial theme (saved or system) ASAP */
+(function applyInitialTheme() {
+  const saved = localStorage.getItem(THEME_STORAGE_KEY);
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  if (saved === 'dark' || (saved === null && prefersDark)) {
+    document.documentElement.classList.add('dark');
+  }
+  // ensure the icon matches initial state once nav is in the DOM
+  document.addEventListener('DOMContentLoaded', () => setTimeout(syncToggleIcon, 0));
+})();
+
+/* React to system scheme if user hasn't chosen yet */
+(function watchSystemTheme() {
+  const mql = window.matchMedia('(prefers-color-scheme: dark)');
+  mql.addEventListener('change', (e) => {
+    const saved = localStorage.getItem(THEME_STORAGE_KEY);
+    if (saved === null) {
+      document.documentElement.classList.toggle('dark', e.matches);
+      syncToggleIcon();
+    }
+  });
+})();
+
+/* Keep FA moon icons in sync with theme */
+function syncToggleIcon() {
+  const isDark = document.documentElement.classList.contains('dark');
+  document.querySelectorAll('#theme-toggle').forEach(btn => {
+    btn.classList.toggle('is-dark', isDark);
+  });
+}
+
+/* Wire the toggle button(s) after nav is injected */
+function setupThemeToggle() {
+  document.querySelectorAll('#theme-toggle').forEach(btn => {
+    // set initial state per current theme
+    btn.classList.toggle('is-dark', document.documentElement.classList.contains('dark'));
+    btn.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      const dark = document.documentElement.classList.contains('dark');
+      localStorage.setItem(THEME_STORAGE_KEY, dark ? 'dark' : 'light');
+      btn.classList.toggle('is-dark', dark);
+      syncToggleIcon();
+    });
+  });
+  // initial icon state
+  syncToggleIcon();
+}
+
+
 // ========== LOAD NAVIGATION ==========
 function loadNavigation() {
   fetch("nav.html")
@@ -6,6 +57,7 @@ function loadNavigation() {
       document.querySelectorAll("#nav-container").forEach(el => el.innerHTML = html);
       highlightNav();
       setupNavHover();
+      setupThemeToggle();
     });
 }
 
@@ -244,3 +296,4 @@ function loadPhotoGallery(folder = 'gallery/', count = 25, ext = '.png') {
     };
   }
 }
+

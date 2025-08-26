@@ -5,57 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Andrea Dunn Beltran</title>
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/v4-shims.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
-<style>
-  .profile-header {
-  display: grid;
-  grid-template-columns: 35% 1fr;
-  grid-template-rows: auto 1fr;
-  grid-template-areas:
-    "image text"
-    "contact text";
-  gap: 2rem;
-  padding: 0;
-}
 
-/* Desktop placement */
-.profile-header .name-block {
-  /* spans full width above everything */
-  grid-column: 1 / -1;
-}
-.profile-header .about-img {
-  grid-area: image;
-  width: 100%;
-  height: auto;
-}
-.profile-header .contact-info {
-  grid-area: contact;
-}
-.profile-header .text-block {
-  grid-area: text;
-}
-
-/* Mobile override (<800px) */
-@media (max-width: 800px) {
-  .profile-header {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto 1fr;
-    grid-template-areas:
-      "image contact"
-      "text text";
-  }
-
-  /* ensure image fills its cell */
-  .profile-header .about-img {
-    width: 100%;
-  }
-}
-
-
-</style>
-<body class="w3-white">
+<body class="w3">
   <!-- Navigation -->
   <div id="nav-container"></div>
 
@@ -67,7 +22,7 @@
       <img src="andrea.jpg" alt="Andrea Dunn Beltran" class="about-img">
 
       <!-- Contact info -->
-      <div class="contact-info; w3-content">
+      <div class="contact-info">
         <p>
           <i class="fa fa-envelope"></i>
           <a href="mailto:asdunnbe@cs.unc.edu">asdunnbe@cs.unc.edu</a><br>
@@ -86,11 +41,21 @@
 
         <p>My research focuses on leveraging 3D computer vision techniques to improve medical procedures and enhance patient care. I work on developing methods for 3D scene reconstruction and synthetic dataset creation to improve the accuracy of real-world imaging applications, particularly in endoscopy. My goal is to apply these advancements in geometry to real-world applications, advancing healthcare diagnostics and driving innovation in robotics.</p>
 
-        <p>Previously, I obtained my B.Sc in Computer Science and Applied Mathematics from <a href="https://www.unc.edu">UNC Chapel Hill</a>. Additionally, I had the opportunity to serve as a visiting scholar through NSF-sponsored REU programs at <a href="https://www.rice.edu">Rice University</a> and the <a href="https://www.usc.edu">University of Southern California</a>.</p>
-        
-        <p>Outside the lab, I enjoy traveling, <a href="photos.html">photography</a>, and hiking. I’m also learning to play bass guitar!</p>
+        <!-- <p>Previously, I obtained my B.Sc in Computer Science and Applied Mathematics from <a href="https://www.unc.edu">UNC Chapel Hill</a>. Additionally, I had the opportunity to serve as a visiting scholar through NSF-sponsored REU programs at <a href="https://www.rice.edu">Rice University</a> and the <a href="https://www.usc.edu">University of Southern California</a> and as a visting graduate student at <a href="https://dbmi.hms.harvard.edu">Harvard Medical Shcool</a>.</p> -->
+        <p>Previously, I obtained my B.Sc in Computer Science and Applied Mathematics from <a href="https://www.unc.edu">UNC Chapel Hill</a>. Additionally, I had the opportunity to serve as a visiting undergraduate student at <a href="https://www.rice.edu">Rice University</a> and the <a href="https://www.usc.edu">University of Southern California</a> then as a visting graduate student at <a href="https://dbmi.hms.harvard.edu">Harvard Medical School</a>.</p>
+
+        <p>Outside the lab, I enjoy traveling, nature, learning the bass guitar, and <a href="photos.html">photography</a>!</p>
             
       </div>
+    
+      <!-- <div class="p2-portrait" data-src="andrea.jpg">
+        <img class="p2-bg" src="andrea.jpg" alt="Andrea background">
+        <canvas class="p2-fg" width="1024" height="1024" aria-label="Andrea foreground"></canvas>
+      </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/@mediapipe/selfie_segmentation@0.1/selfie_segmentation.js"></script> -->
+
+
     </section>
 
     <!-- Featured Projects -->
@@ -100,6 +65,10 @@
       <div style="margin: 30px;"></div>
 
       <div class="projects-grid"></div>
+
+      <div style="margin: 50px;"></div>
+      <a href="projects.html" style="font-size:20px; margin-top: 20px;">See All Projects...</a>
+
     </section>
 
     <!-- Featured Papers -->
@@ -125,5 +94,63 @@
     loadProjects("featured-projects", true);
     loadFeaturedPapers("featured-papers");
   </script>
+  <script>
+  (async function(){
+    const wrap = document.querySelector('.p2-portrait');
+    if(!wrap || !window.SelfieSegmentation) return;
+    const imgSrc = wrap.dataset.src;
+    const bg = wrap.querySelector('.p2-bg');
+    const canvas = wrap.querySelector('.p2-fg');
+    const ctx = canvas.getContext('2d');
+
+    // load original image
+    const img = new Image(); img.crossOrigin = 'anonymous'; img.src = imgSrc;
+    await new Promise(res => img.onload = res);
+
+    // resize canvas to image ratio
+    const W = img.naturalWidth, H = img.naturalHeight;
+    canvas.width = W; canvas.height = H;
+
+    // setup mediapipe
+    const seg = new SelfieSegmentation({locateFile: f =>
+      `https://cdn.jsdelivr.net/npm/@mediapipe/selfie_segmentation@0.1/${f}`});
+    seg.setOptions({ modelSelection: 1 });
+
+    seg.onResults(({segmentationMask})=>{
+      ctx.save();
+      ctx.clearRect(0,0,W,H);
+      // draw mask
+      ctx.drawImage(segmentationMask, 0, 0, W, H);
+      // keep person only
+      ctx.globalCompositeOperation = 'source-in';
+      ctx.drawImage(img, 0, 0, W, H);
+      ctx.restore();
+    });
+
+    await seg.send({image: img}); // run once on the still image
+
+    // interaction
+    function setTilt(x,y){ // [-.5,.5]
+      wrap.style.setProperty('--ry', (x*16)+'deg');
+      wrap.style.setProperty('--rx', (-y*12)+'deg');
+      wrap.style.setProperty('--tx', (x*10)+'px');
+      wrap.style.setProperty('--ty', (y*10)+'px');
+    }
+    wrap.addEventListener('mousemove', e=>{
+      const r = wrap.getBoundingClientRect();
+      setTilt((e.clientX-r.left)/r.width - .5, (e.clientY-r.top)/r.height - .5);
+    });
+    wrap.addEventListener('mouseleave', ()=>setTilt(0,0));
+    wrap.addEventListener('touchmove', e=>{
+      const t=e.touches[0], r=wrap.getBoundingClientRect();
+      setTilt((t.clientX-r.left)/r.width - .5, (t.clientY-r.top)/r.height - .5);
+    }, {passive:true});
+
+    // wobble every 10s
+    setInterval(()=>{ canvas.classList.add('wobble'); setTimeout(()=>canvas.classList.remove('wobble'), 1300); }, 8000);
+  })();
+  </script>
+
+
 </body>
 </html>
