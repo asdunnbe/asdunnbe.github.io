@@ -1,15 +1,15 @@
 [
   {
     "title": "NFL-BA: Improving Endoscopic SLAM with Near-Field Light Bundle Adjustment",
-    "authors": "Andrea Dunn Beltran, Daniel Rho, Marc Niethammer, Roni Sengupta",
-    "status": "Under Review",
+    "authors": "Andrea Dunn Beltran*, Daniel Rho*, Marc Niethammer, Roni Sengupta",
+    "status": "NeurIPS 2025",
     "summary": "We introduce a Bundle Adjustment loss using lighting cues to improve pose and map estimation in dense visual SLAM for endoscopy.",
     "img": "paper_images/nflba.png",
     "links": [
       { "url": "https://arxiv.org/abs/2412.13176", "label": "Paper" },
       { "url": "https://asdunnbe.github.io/NFL-BA/", "label": "Project Page" }
     ],
-    "type": "preprint",
+    "type": "published",
     "featured": true
   },
   {
