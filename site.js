@@ -186,7 +186,7 @@ function loadPapers(preprintClass, publishedClass) {
         tdDet.className = "detail";
         let authorsHtml = formatAuthors(paper.authors);
         let html = `<p><b id=\"papertitle\">${paper.title}</b><br>${authorsHtml}<br><i>${paper.status}</i><br>`;
-        html += paper.links.map(l => `[<a href=\"${l.url}\" target=\"_blank\">${l.label}</a>]`).join(' ');
+        html += paper.links.map(l => `[ <a href=\"${l.url}\" target=\"_blank\">${l.label}</a> ]`).join(' ');
         html += `</p>`;
         if (paper.summary) html += `<p><i>${paper.summary}</i></p>`;
         tdDet.innerHTML = html;
@@ -221,7 +221,7 @@ function loadFeaturedPapers(tableId) {
         tdDet.className = "detail";
         let authorsHtml = formatAuthors(paper.authors);
         let html = `<p><b id=\"papertitle\">${paper.title}</b><br>${authorsHtml}<br><i>${paper.status}</i><br>`;
-        html += paper.links.map(l => `[<a href=\"${l.url}\" target=\"_blank\">${l.label}</a>]`).join(' ');
+        html += paper.links.map(l => `[ <a href=\"${l.url}\" target=\"_blank\">${l.label}</a> ]`).join(' ');
         html += `</p>`;
         if (paper.summary) html += `<p><i>${paper.summary}</i></p>`;
         tdDet.innerHTML = html;
@@ -256,7 +256,7 @@ function loadFeaturedPapers(tableClass) {
         const tdDet = document.createElement("td");
         tdDet.className = "detail";
         let html = `<p><b id=\"papertitle\">${paper.title}</b><br>${paper.authors}<br><i>${paper.status}</i><br>`;
-        html += paper.links.map(l=>`[<a href=\"${l.url}\" target=\"_blank\">${l.label}</a>]`).join(' ');
+        html += paper.links.map(l=>`[ <a href=\"${l.url}\" target=\"_blank\">${l.label}</a> ]`).join(' ');
         html += `</p>`;
         if(paper.summary) html += `<p><i>${paper.summary}</i></p>`;
         tdDet.innerHTML = html;
