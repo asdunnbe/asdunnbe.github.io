@@ -113,7 +113,6 @@ nav .w3-right:hover { background-color: transparent!important; color: var(--hove
 nav .w3-bar-item.w3-button:hover { background-color: transparent!important; color: var(--primary-blue)!important; }
 nav .w3-bar-item.active { color: var(--primary-blue); }
 nav .w3-bar-item.active:hover,
-nav .w3-bar-item.active.dimmed,
 nav .w3-bar-item:not(.active):hover { color: var(--hover-blue-2)!important; }
 
 section { margin-bottom: 3rem; }

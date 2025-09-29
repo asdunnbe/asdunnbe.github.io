@@ -56,7 +56,6 @@ function loadNavigation() {
     .then(html => {
       document.querySelectorAll("#nav-container").forEach(el => el.innerHTML = html);
       highlightNav();
-      setupNavHover();
       setupThemeToggle();
     });
 }
@@ -70,27 +69,7 @@ function highlightNav() {
       link.classList.add("active");
     } else {
       link.classList.remove("active");
-      link.classList.remove("dimmed");
     }
-  });
-}
-
-// Set up hover behavior to dim active when others are hovered
-function setupNavHover() {
-  const links = document.querySelectorAll("#nav-container nav a");
-  links.forEach(link => {
-    link.addEventListener('mouseenter', (e) => {
-      const active = document.querySelector('#nav-container nav a.active');
-      if (active && active !== e.target) {
-        active.classList.add('dimmed');
-      }
-    });
-    link.addEventListener('mouseleave', (e) => {
-      const active = document.querySelector('#nav-container nav a.active');
-      if (active) {
-        active.classList.remove('dimmed');
-      }
-    });
   });
 }
 
@@ -296,4 +275,3 @@ function loadPhotoGallery(folder = 'gallery/', count = 25, ext = '.png') {
     };
   }
 }
-
