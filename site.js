@@ -167,16 +167,11 @@ function loadPapers(preprintClass, publishedClass) {
         const linksHtml = paper.links
           .map(l => `[ <a href="${l.url}" target="_blank">${l.label}</a> ]`)
           .join(' ');
-        tdDet.innerHTML = `
-          <div class="paper-title">${paper.title}</div>
-          <div class="paper-authors">${authorsHtml}</div>
-          <div class="paper-thumb-inline">
-            <img src="papers/${paper.img}" alt="${paper.title}">
-          </div>
-          <div class="paper-status"><i>${paper.status}</i></div>
-          <div class="paper-links">${linksHtml}</div>
-          ${paper.summary ? `<p class="paper-summary"><i>${paper.summary}</i></p>` : ""}
-        `;
+        let html = `<p><b id="papertitle">${paper.title}</b><br>${authorsHtml}<br><i>${paper.status}</i><br>`;
+        html += linksHtml;
+        html += `</p>`;
+        if (paper.summary) html += `<p><i>${paper.summary}</i></p>`;
+        tdDet.innerHTML = html;
         row.appendChild(tdImg);
         row.appendChild(tdDet);
         if (paper.type === "preprint") preTable.appendChild(row);
@@ -210,16 +205,11 @@ function loadFeaturedPapers(tableId) {
         const linksHtml = paper.links
           .map(l => `[ <a href="${l.url}" target="_blank">${l.label}</a> ]`)
           .join(' ');
-        tdDet.innerHTML = `
-          <div class="paper-title">${paper.title}</div>
-          <div class="paper-authors">${authorsHtml}</div>
-          <div class="paper-thumb-inline">
-            <img src="papers/${paper.img}" alt="${paper.title}">
-          </div>
-          <div class="paper-status"><i>${paper.status}</i></div>
-          <div class="paper-links">${linksHtml}</div>
-          ${paper.summary ? `<p class="paper-summary"><i>${paper.summary}</i></p>` : ""}
-        `;
+        let html = `<p><b id="papertitle">${paper.title}</b><br>${authorsHtml}<br><i>${paper.status}</i><br>`;
+        html += linksHtml;
+        html += `</p>`;
+        if (paper.summary) html += `<p><i>${paper.summary}</i></p>`;
+        tdDet.innerHTML = html;
         row.appendChild(tdImg);
         row.appendChild(tdDet);
         table.appendChild(row);
@@ -254,16 +244,11 @@ function loadFeaturedPapers(tableClass) {
         const linksHtml = paper.links
           .map(l => `[ <a href="${l.url}" target="_blank">${l.label}</a> ]`)
           .join(' ');
-        tdDet.innerHTML = `
-          <div class="paper-title">${paper.title}</div>
-          <div class="paper-authors">${authorsHtml}</div>
-          <div class="paper-thumb-inline">
-            <img src="papers/${paper.img}" alt="${paper.title}">
-          </div>
-          <div class="paper-status"><i>${paper.status}</i></div>
-          <div class="paper-links">${linksHtml}</div>
-          ${paper.summary ? `<p class="paper-summary"><i>${paper.summary}</i></p>` : ""}
-        `;
+        let html = `<p><b id="papertitle">${paper.title}</b><br>${authorsHtml}<br><i>${paper.status}</i><br>`;
+        html += linksHtml;
+        html += `</p>`;
+        if (paper.summary) html += `<p><i>${paper.summary}</i></p>`;
+        tdDet.innerHTML = html;
         row.appendChild(tdImg);
         row.appendChild(tdDet);
         table.appendChild(row);
