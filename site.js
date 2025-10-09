@@ -163,12 +163,20 @@ function loadPapers(preprintClass, publishedClass) {
         // detail cell
         const tdDet = document.createElement("td");
         tdDet.className = "detail";
-        let authorsHtml = formatAuthors(paper.authors);
-        let html = `<p><b id=\"papertitle\">${paper.title}</b><br>${authorsHtml}<br><i>${paper.status}</i><br>`;
-        html += paper.links.map(l => `[ <a href=\"${l.url}\" target=\"_blank\">${l.label}</a> ]`).join(' ');
-        html += `</p>`;
-        if (paper.summary) html += `<p><i>${paper.summary}</i></p>`;
-        tdDet.innerHTML = html;
+        const authorsHtml = formatAuthors(paper.authors);
+        const linksHtml = paper.links
+          .map(l => `[ <a href="${l.url}" target="_blank">${l.label}</a> ]`)
+          .join(' ');
+        tdDet.innerHTML = `
+          <div class="paper-title">${paper.title}</div>
+          <div class="paper-authors">${authorsHtml}</div>
+          <div class="paper-thumb-inline">
+            <img src="papers/${paper.img}" alt="${paper.title}">
+          </div>
+          <div class="paper-status"><i>${paper.status}</i></div>
+          <div class="paper-links">${linksHtml}</div>
+          ${paper.summary ? `<p class="paper-summary"><i>${paper.summary}</i></p>` : ""}
+        `;
         row.appendChild(tdImg);
         row.appendChild(tdDet);
         if (paper.type === "preprint") preTable.appendChild(row);
@@ -198,12 +206,20 @@ function loadFeaturedPapers(tableId) {
         tdImg.appendChild(img);
         const tdDet = document.createElement("td");
         tdDet.className = "detail";
-        let authorsHtml = formatAuthors(paper.authors);
-        let html = `<p><b id=\"papertitle\">${paper.title}</b><br>${authorsHtml}<br><i>${paper.status}</i><br>`;
-        html += paper.links.map(l => `[ <a href=\"${l.url}\" target=\"_blank\">${l.label}</a> ]`).join(' ');
-        html += `</p>`;
-        if (paper.summary) html += `<p><i>${paper.summary}</i></p>`;
-        tdDet.innerHTML = html;
+        const authorsHtml = formatAuthors(paper.authors);
+        const linksHtml = paper.links
+          .map(l => `[ <a href="${l.url}" target="_blank">${l.label}</a> ]`)
+          .join(' ');
+        tdDet.innerHTML = `
+          <div class="paper-title">${paper.title}</div>
+          <div class="paper-authors">${authorsHtml}</div>
+          <div class="paper-thumb-inline">
+            <img src="papers/${paper.img}" alt="${paper.title}">
+          </div>
+          <div class="paper-status"><i>${paper.status}</i></div>
+          <div class="paper-links">${linksHtml}</div>
+          ${paper.summary ? `<p class="paper-summary"><i>${paper.summary}</i></p>` : ""}
+        `;
         row.appendChild(tdImg);
         row.appendChild(tdDet);
         table.appendChild(row);
@@ -234,11 +250,20 @@ function loadFeaturedPapers(tableClass) {
         // detail cell
         const tdDet = document.createElement("td");
         tdDet.className = "detail";
-        let html = `<p><b id=\"papertitle\">${paper.title}</b><br>${paper.authors}<br><i>${paper.status}</i><br>`;
-        html += paper.links.map(l=>`[ <a href=\"${l.url}\" target=\"_blank\">${l.label}</a> ]`).join(' ');
-        html += `</p>`;
-        if(paper.summary) html += `<p><i>${paper.summary}</i></p>`;
-        tdDet.innerHTML = html;
+        const authorsHtml = formatAuthors(paper.authors);
+        const linksHtml = paper.links
+          .map(l => `[ <a href="${l.url}" target="_blank">${l.label}</a> ]`)
+          .join(' ');
+        tdDet.innerHTML = `
+          <div class="paper-title">${paper.title}</div>
+          <div class="paper-authors">${authorsHtml}</div>
+          <div class="paper-thumb-inline">
+            <img src="papers/${paper.img}" alt="${paper.title}">
+          </div>
+          <div class="paper-status"><i>${paper.status}</i></div>
+          <div class="paper-links">${linksHtml}</div>
+          ${paper.summary ? `<p class="paper-summary"><i>${paper.summary}</i></p>` : ""}
+        `;
         row.appendChild(tdImg);
         row.appendChild(tdDet);
         table.appendChild(row);

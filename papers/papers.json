@@ -15,7 +15,7 @@
   {
     "title": "PPS-Ctrl: Controllable Sim-to-Real Translation for Colonoscopy Depth Estimation",
     "authors": "Xinqi (Ana) Xiong, Andrea Dunn Beltran, Jun Myeong Choi, Marc Niethammer, Roni Sengupta",
-    "status": "Under Review",
+    "status": "Arxiv 2025",
     "summary": "PPS-Ctrl fuses Stable Diffusion and ControlNet, guided by physics-informed shading for structure-preserving endoscopy image translation.",
     "img": "paper_images/pps-ctrl.png",
     "links": [
@@ -27,7 +27,7 @@
   {
     "title": "VIN-NBV: A View Introspection Network for Next-Best-View Selection for Resource-Efficient 3D Reconstruction",
     "authors": "Noah Frahm, Dongxu Zhao*, Andrea Dunn Beltran*, Ron Alterovitz, Jan-Michael Frahm, Junier Oliva, Roni Sengupta",
-    "status": "Under Review",
+    "status": "Under Review - Arxiv 2025",
     "summary": "The VIN predicts reconstruction-quality gains for candidate views using 3D-aware features to improve 3D scene reconstruction.",
     "img": "paper_images/vin.png",
     "links": [

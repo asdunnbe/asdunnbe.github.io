@@ -9,7 +9,7 @@
   --text: #0b0b0b;
   --muted: #777777;
   --border: #eaeaea;
-  --nav-bg: #ffffff;
+  --nav-bg: rgba(255,255,255,0.82);
   --nav-text: var(--text);
   --card-shadow: 0 2px 6px rgba(0,0,0,0.25);
 }
@@ -49,6 +49,10 @@ hr {
 }
 
 p { font-size: 17px; margin: .5rem 0; color: var(--text); }
+p > b,
+p > strong {
+  font-weight: 500;
+}
 a { text-decoration: none; color: var(--primary-blue); }
 a:hover { color: var(--hover-blue-2); }
 
@@ -110,6 +114,11 @@ nav.w3-bar.site-nav {
 nav .w3-bar-item { font-weight: 400; color: var(--nav-text); }
 nav .w3-right    { margin-left: auto; font-size: 1rem; color: var(--primary-blue); }
 nav .w3-right:hover { background-color: transparent!important; color: var(--hover-blue-2)!important; }
+nav .w3-bar-item,
+nav .w3-bar-item.w3-button,
+nav .theme-toggle {
+  background-color: transparent!important; /* keep every control glass over the nav */
+}
 nav .w3-bar-item.w3-button:hover { background-color: transparent!important; color: var(--primary-blue)!important; }
 nav .w3-bar-item.active { color: var(--primary-blue); }
 nav .w3-bar-item.active:hover,
@@ -120,50 +129,85 @@ section { margin-bottom: 3rem; }
 /* Profile Header Grid (from your <style>, moved here) */
 .profile-header {
   display: grid;
-  grid-template-columns: 35% 1fr;
-  grid-template-rows: auto 1fr;
+  grid-template-columns: minmax(220px, 35%) 1fr;
+  grid-template-rows: auto auto;
   grid-template-areas:
     "image text"
-    "contact text";
-  gap: 2rem;
+    "contact contact";
+  column-gap: 2.25rem;
+  row-gap: 1.25rem;
   padding: 0;
+  align-items: start;
 }
 .profile-header .about-img {
   grid-area: image;
   width: 100%;
   height: auto;
   border-radius: 4%;
+  justify-self: center;
+  align-self: center;
 }
 .profile-header .contact-info { 
   grid-area: contact; 
-  /* justify-self: center;    */
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.75rem;
+  padding: .5rem 0 0;
+  width: 50%;
+  margin: 0 auto;
+  justify-self: center;
+  flex-wrap: nowrap;
 }
-.profile-header .text-block   { grid-area: text; }
+.profile-header .text-block   { 
+  grid-area: text; 
+  align-self: center;
+}
+.profile-header .contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: 1rem;
+  color: var(--text);
+  white-space: nowrap;
+  justify-content: center;
+}
+.profile-header .contact-link:hover { color: var(--primary-blue); }
 
 /* Mobile override */
-@media (min-width: 801px) {
-  .profile-header .contact-info {
-    display: inline-block;   /* don't stretch to full column width */
-    width: max-content;      /* shrink-wrap to content */
-    justify-self: center;    /* center the item horizontally in its grid cell */
-    text-align: left;        /* keep text left-aligned */
-  }
-}
-
 @media (max-width: 800px) {
   .profile-header {
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto 1fr;
+    grid-template-rows: auto auto;
     grid-template-areas:
       "image contact"
       "text text";
+    gap: 1.5rem;
+    align-items: center;
   }
-  .profile-header .about-img { width: 250px; }
+  .profile-header .about-img { width: 220px; }
   .profile-header .contact-info {
-    justify-self: start;  /* stop centering the grid item on mobile */
-    text-align: left;     /* in case any inherited center sneaks in */
+    justify-self: start;
+    align-self: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .75rem;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0;
   }
+  .profile-header .contact-link {
+    justify-content: flex-start;
+    white-space: normal;
+  }
+  .profile-header .text-block {
+    width: 90%;
+    justify-self: center;
+  }
+  .papers .thumbs { display: none; }
+  .paper-thumb-inline { display: block; margin: 1rem 0; }
+  .paper-thumb-inline img { width: 100%; height: auto; }
 }
 
 /* Headings */
@@ -235,7 +279,6 @@ h2 { font-size: 35px; text-align: center; color: var(--text);}
 .flip-card-back .links a:hover { color: var(--hover-blue); }
 
 /* Papers table */
-#papertitle { color: var(--primary-blue); font-size: 20px; margin: 0; padding: 0; }
 table.featured-papers,
 table.papers {
   width: 100%;
@@ -244,8 +287,23 @@ table.papers {
   color: var(--text);
 }
 .papers .thumbs { padding: 10px; width: 40%; vertical-align: middle; }
-.papers .detail { padding: 10px; vertical-align: middle; }
+.papers .detail { padding: 10px; vertical-align: middle; display: flex; flex-direction: column; gap: .35rem; }
 .papers img.thumbs { width: 100%; height: auto; }
+.paper-title {
+  color: var(--primary-blue);
+  font-size: 20px;
+  font-weight: 700;
+}
+.paper-authors { font-size: 16px; }
+.paper-status { font-size: 16px; font-style: italic; }
+.paper-links { font-size: 15px; }
+.paper-summary { margin-top: .5rem; font-size: 15px; }
+.paper-thumb-inline { display: none; }
+.paper-thumb-inline img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
 
 /* Footer */
 footer { text-align: center; font-size: .875rem; color: var(--muted); margin-top: 2rem; }
