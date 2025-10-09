@@ -12,6 +12,7 @@
   --nav-bg: rgba(255,255,255,0.82);
   --nav-text: var(--text);
   --card-shadow: 0 2px 6px rgba(0,0,0,0.25);
+  --nav-offset: 3.5rem;
 }
 
 /* Dark mode (cards keep their look; site chrome flips) */
@@ -23,6 +24,12 @@
   --nav-bg: rgba(12,12,12,0.92);
   --nav-text: var(--text);
   --card-shadow: 0 2px 10px rgba(255,255,255,0.14); 
+}
+
+@media (max-width: 800px) {
+  :root {
+    --nav-offset: 4.5rem;
+  }
 }
 
 html { transition: background-color .25s ease, color .25s ease; }
@@ -61,7 +68,7 @@ a:hover { color: var(--hover-blue-2); }
   margin: 2rem auto;
   padding: 0 1rem;
 }
-.w3-content.container { padding-top: 3.5rem; }
+.w3-content.container { padding-top: var(--nav-offset); }
 
 /* Sticky Navigation */
 nav.w3-bar.site-nav {
@@ -203,7 +210,7 @@ section { margin-bottom: 3rem; }
     white-space: normal;
   }
   .profile-header .text-block {
-    width: 90%;
+    width: 95%;
     justify-self: center;
   }
 }
