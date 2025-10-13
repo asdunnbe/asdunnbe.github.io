@@ -89,16 +89,24 @@ function loadNews(containerSelector = '.news-list') {
   fetch('news/news.json')
     .then(res => res.json())
     .then(items => {
+      let hasHighlight = false;
       items.forEach(item => {
         const entry = document.createElement('p');
         const date = document.createElement('b');
         date.textContent = `[ ${item.date} ]`;
         const detail = document.createElement('span');
         detail.innerHTML = item.content;
+        if (item.highlight) {
+          entry.classList.add('highlight');
+          hasHighlight = true;
+        }
         entry.appendChild(date);
         entry.appendChild(detail);
         container.appendChild(entry);
       });
+      if (!hasHighlight && container.firstElementChild) {
+        container.firstElementChild.classList.add('highlight');
+      }
       syncToggleIcon();
     });
 }

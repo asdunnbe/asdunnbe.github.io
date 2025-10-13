@@ -1,7 +1,8 @@
 [
   {
     "date": "September 2025",
-    "content": "Our paper <a href=\"https://asdunnbe.github.io/NFL-BA/\" target=\"_blank\">NFL-BA</a> was accepted to <a href=\"https://neurips.cc\" target=\"_blank\">NeurIPS 2025</a>!"
+    "content": "Our paper <a href=\"https://asdunnbe.github.io/NFL-BA/\" target=\"_blank\">NFL-BA</a> was accepted to <a href=\"https://neurips.cc\" target=\"_blank\">NeurIPS 2025</a>!",
+    "highlight": true
   },
   {
     "date": "August 2025",
