@@ -13,6 +13,7 @@
   --nav-text: var(--text);
   --card-shadow: 0 2px 6px rgba(0,0,0,0.25);
   --nav-offset: 3.5rem;
+  --news-highlight: rgba(255, 235, 59, 0.35);
 }
 
 /* Dark mode (cards keep their look; site chrome flips) */
@@ -24,6 +25,7 @@
   --nav-bg: rgba(12,12,12,0.92);
   --nav-text: var(--text);
   --card-shadow: 0 2px 10px rgba(255,255,255,0.14); 
+  --news-highlight: rgba(255, 235, 59, 0.20);
 }
 
 @media (max-width: 800px) {
@@ -362,7 +364,21 @@ footer { text-align: center; font-size: .875rem; color: var(--muted); margin-top
   grid-template-columns: var(--news-date-w) 1fr;
   column-gap: 1rem;
   align-items: start;
-  margin: .5rem 0;
+  margin: .25rem 0.25rem;
+  padding: .5rem 0.5rem;
+  border-radius: 8px;
+}
+
+.news-list {
+  max-height: 200px;
+  overflow-y: auto;
+  padding: .5rem 0.5rem;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.025);
+}
+
+.dark .news-list {
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .news-list p b{
@@ -377,6 +393,10 @@ footer { text-align: center; font-size: .875rem; color: var(--muted); margin-top
   grid-column: 2;                /* wrapped lines align with the text start */
   display: block;
   color: var(--text);
+}
+
+.news-list p:first-of-type{
+  background: var(--news-highlight);
 }
 
 /* Optional: slightly narrower date column on small screens */

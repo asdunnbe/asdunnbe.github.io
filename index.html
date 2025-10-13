@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
   <!-- META & OG (quick wins) -->
   <meta name="description" content="Andrea Dunn Beltran — 3D vision & SLAM for dynamic anatomy; MSc at UNC.">
@@ -77,17 +77,9 @@
     <!-- News -->
     <section id="news" class="container">
       <hr>
-      <br>
       <div class="w3-center"><h2>News</h2></div>
       <br>
-
-      <div class="text-block news-list">
-        <p><b>[ September 2025 ]</b><span>Our paper <a href="https://asdunnbe.github.io/NFL-BA/" target="_blank">NFL-BA</a> was accepted to <a href="https://neurips.cc" target="_blank">NeurIPS 2025</a>!</span></p>
-
-        <p><b>[ August 2025 ]</b><span>Started as a Visiting Graduate Student at <a href="https://dbmi.hms.harvard.edu" target="_blank">Harvard Medical School</a> under the mentorship of <a href="https://pranavrajpurkar.com" target="_blank">Dr. Pranav Rajpurkar</a>!</span></p>
-
-        <p><b>[ June 2025 ]</b><span>We will be presenting our work at CVPR Workshops: <a href="https://sites.google.com/view/mmfm-biomed-2025/" target="_blank">MMFM-BIOMED</a> and <a href="https://sites.google.com/view/wicv-cvpr-2025/home?authuser=0" target="_blank">WiCV</a>!</span></p>
-      </div>
+      <div class="text-block news-list" id="news-list"></div>
       <br>
     </section>
 
@@ -95,7 +87,6 @@
     <!-- Featured Projects -->
     <section id="featured-projects">
       <hr>
-      <br>
       <div class="w3-center"><h2>Featured Projects</h2></div>
       <div style="margin: 30px;"></div>
 
@@ -103,7 +94,6 @@
 
       <div style="margin: 50px;"></div>
       <a href="projects.html" style="font-size:20px; margin-top: 20px;">See All Projects...</a>
-
     </section>
 
     <!-- Featured Papers -->
@@ -128,6 +118,7 @@
     loadNavigation();
     setTimeout(() => window.dispatchEvent(new Event('resize')), 100);
     loadProjects("featured-projects", true);
+    loadNews("#news-list");
     loadFeaturedPapers("featured-papers");
   </script>
   <script>

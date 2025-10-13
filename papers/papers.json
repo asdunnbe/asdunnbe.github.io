@@ -22,7 +22,7 @@
       { "url": "https://asdunnbe.github.io/NFL-BA/NeurIPS2025_NFL_BA.pdf", "label": "Paper" }
     ],
     "type": "preprint",
-    "featured": false
+    "featured": true
   },
   {
     "title": "VIN-NBV: A View Introspection Network for Next-Best-View Selection for Resource-Efficient 3D Reconstruction",
@@ -35,7 +35,7 @@
       { "url": "https://noahfrahm.github.io/VIN-NBVProjectPage/", "label": "Project Page" }
     ],
     "type": "preprint",
-    "featured": false
+    "featured": true
   },
   {
     "title": "Modulation of tau tubulin kinases (TTBK1 and TTBK2) impacts ciliogenesis",

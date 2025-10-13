@@ -2,10 +2,17 @@ const THEME_STORAGE_KEY = 'theme';
 
 /* Apply initial theme (saved or system) ASAP */
 (function applyInitialTheme() {
+  const root = document.documentElement;
   const saved = localStorage.getItem(THEME_STORAGE_KEY);
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  if (saved === 'dark' || (saved === null && prefersDark)) {
-    document.documentElement.classList.add('dark');
+  if (saved === 'light') {
+    root.classList.remove('dark');
+  } else if (saved === 'dark') {
+    root.classList.add('dark');
+  } else if (prefersDark) {
+    root.classList.add('dark');
+  } else {
+    root.classList.add('dark'); // default to dark when there is no saved preference
   }
   // ensure the icon matches initial state once nav is in the DOM
   document.addEventListener('DOMContentLoaded', () => setTimeout(syncToggleIcon, 0));
@@ -71,6 +78,29 @@ function highlightNav() {
       link.classList.remove("active");
     }
   });
+}
+
+
+
+// ========== LOAD NEWS ==========
+function loadNews(containerSelector = '.news-list') {
+  const container = document.querySelector(containerSelector);
+  if (!container) return;
+  fetch('news/news.json')
+    .then(res => res.json())
+    .then(items => {
+      items.forEach(item => {
+        const entry = document.createElement('p');
+        const date = document.createElement('b');
+        date.textContent = `[ ${item.date} ]`;
+        const detail = document.createElement('span');
+        detail.innerHTML = item.content;
+        entry.appendChild(date);
+        entry.appendChild(detail);
+        container.appendChild(entry);
+      });
+      syncToggleIcon();
+    });
 }
 
 
