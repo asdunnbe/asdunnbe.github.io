@@ -142,12 +142,15 @@ function loadProjects(sectionId = "project-grid", featuredOnly = false) {
           })
           .join("");
 
+        const frontTitle = p.frontTitle || p.title;
+
         const card = document.createElement("div");
         card.className = "project-card";
         card.innerHTML = `
           <div class="flip-card-inner">
             <div class="flip-card-front">
               <img src="projects/${p.img}" alt="${p.title}">
+              <h4>${frontTitle}</h4>
             </div>
             <div class="flip-card-back">
               <h4>${p.title}</h4>
