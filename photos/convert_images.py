@@ -3,6 +3,8 @@ import os
 import sys
 from PIL import Image
 
+MAX_EDGE = 500  # pixels
+
 # Optional HEIC support: pip install pillow-heif
 try:
     import pillow_heif
@@ -31,10 +33,20 @@ def convert_folder(input_dir, output_dir, out_ext="jpg"):
                 # if saving JPEG, drop alpha channel
                 if out_ext.lower() in ("jpg", "jpeg"):
                     img = img.convert("RGB")
+                    out_format = "JPEG"
                 else:
                     img = img.convert("RGBA")
+                    out_format = "PNG"
 
-                img.save(dst, format=out_ext.upper())
+                # resize so the longest edge is at most MAX_EDGE
+                resample_filter = getattr(Image, "Resampling", None)
+                if resample_filter:
+                    resample = Image.Resampling.LANCZOS
+                else:
+                    resample = Image.LANCZOS
+                img.thumbnail((MAX_EDGE, MAX_EDGE), resample=resample)
+
+                img.save(dst, format=out_format)
                 print(f"[OK] {src} → {dst}")
         except Exception as e:
             print(f"[SKIP] {src}: {e}")

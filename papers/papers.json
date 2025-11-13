@@ -13,6 +13,19 @@
     "featured": true
   },
   {
+    "title": "VIN-NBV: A View Introspection Network for Next-Best-View Selection for Resource-Efficient 3D Reconstruction",
+    "authors": "Noah Frahm, Dongxu Zhao*, Andrea Dunn Beltran*, Ron Alterovitz, Jan-Michael Frahm, Junier Oliva, Roni Sengupta",
+    "status": "Arxiv 2025",
+    "summary": "The VIN predicts reconstruction-quality gains for candidate views using 3D-aware features to improve 3D scene reconstruction.",
+    "img": "paper_images/vin.png",
+    "links": [
+      { "url": "https://arxiv.org/abs/2505.06219", "label": "Paper" },
+      { "url": "https://noahfrahm.github.io/VIN-NBVProjectPage/", "label": "Project Page" }
+    ],
+    "type": "preprint",
+    "featured": true
+  },
+  {
     "title": "PPS-Ctrl: Controllable Sim-to-Real Translation for Colonoscopy Depth Estimation",
     "authors": "Xinqi (Ana) Xiong, Andrea Dunn Beltran, Jun Myeong Choi, Marc Niethammer, Roni Sengupta",
     "status": "Arxiv 2025",
@@ -20,19 +33,6 @@
     "img": "paper_images/pps-ctrl.png",
     "links": [
       { "url": "https://asdunnbe.github.io/NFL-BA/NeurIPS2025_NFL_BA.pdf", "label": "Paper" }
-    ],
-    "type": "preprint",
-    "featured": true
-  },
-  {
-    "title": "VIN-NBV: A View Introspection Network for Next-Best-View Selection for Resource-Efficient 3D Reconstruction",
-    "authors": "Noah Frahm, Dongxu Zhao*, Andrea Dunn Beltran*, Ron Alterovitz, Jan-Michael Frahm, Junier Oliva, Roni Sengupta",
-    "status": "Under Review - Arxiv 2025",
-    "summary": "The VIN predicts reconstruction-quality gains for candidate views using 3D-aware features to improve 3D scene reconstruction.",
-    "img": "paper_images/vin.png",
-    "links": [
-      { "url": "https://arxiv.org/abs/2505.06219", "label": "Paper" },
-      { "url": "https://noahfrahm.github.io/VIN-NBVProjectPage/", "label": "Project Page" }
     ],
     "type": "preprint",
     "featured": true

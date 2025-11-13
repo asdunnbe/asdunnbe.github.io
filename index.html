@@ -7,18 +7,21 @@
   <meta property="og:title" content="Andrea Dunn Beltran — 3D Vision & Medical AI">
   <meta property="og:description" content="I build deformation-aware 3D vision methods for endoscopy, bridging to robotics.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="andrea.jpg">
-  <link rel="icon" type="image/png" href="rubber-duck.png">
+  <meta property="og:image" content="resources/andrea.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="resources/rubber-duck.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="resources/rubber-duck.png">
+  <link rel="apple-touch-icon" href="resources/rubber-duck.png">
+  <link rel="shortcut icon" type="image/png" href="resources/rubber-duck.png">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Andrea Dunn Beltran</title>
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/v4-shims.min.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="resources/style.css">
 </head>
 
-<body class="w3">
+<body class="w3" data-root=".">
   <!-- Navigation -->
   <div id="nav-container"></div>
 
@@ -27,7 +30,7 @@
     <section id="about" class="profile-header">
 
       <!-- Profile image -->
-      <img src="andrea.jpg" alt="Andrea Dunn Beltran" class="about-img">
+      <img src="resources/andrea.jpg" alt="Andrea Dunn Beltran" class="about-img">
 
       <!-- Contact info -->
       <div class="contact-info">
@@ -43,7 +46,7 @@
           <i class="fa fa-graduation-cap" aria-hidden="true"></i>
           <span>Google Scholar</span>
         </a>
-        <a class="contact-link" href="AndreaDunnBeltran_CV.pdf" target="_blank">
+        <a class="contact-link" href="resources/AndreaDunnBeltran_CV.pdf" target="_blank">
           <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
           <span>CV</span>
         </a>
@@ -53,19 +56,19 @@
       <div class="text-block">
         <h1 style="font-size: 40px; margin-bottom: 1.0rem;"><b>Andrea</b> Dunn Beltran</h1>
 
-        <p>Hi! I'm a Master's student in Computer Science at <a href="https://cs.unc.edu">UNC Chapel Hill</a>, researching 3D computer vision under the guidance of <a href="https://www.cs.unc.edu/~ronisen/" target="_blank">Professor Roni Sengupta</a></p>
+        <p>Hi! I'm a Master's student in Computer Science at <a href="https://cs.unc.edu">UNC Chapel Hill</a>, researching 3D computer vision under the guidance of <a href="https://www.cs.unc.edu/~ronisen/" target="_blank">Professor Roni Sengupta</a>.</p>
 
         <!-- <p>My research focuses on leveraging 3D computer vision techniques to improve medical procedures and enhance patient care. I work on developing methods for 3D scene reconstruction and synthetic dataset creation to improve the accuracy of real-world imaging applications, particularly in endoscopy. My goal is to apply these advancements in geometry to real-world applications, advancing healthcare diagnostics and driving innovation in robotics.</p> -->
         <p>My research centers on physics-informed computer vision for medicine. Currently, I focus on reliable 3D/4D reconstruction, tracking, and simulation specifically in endoscopy, including near-field lighting and deformable reconstruction of airway and colon data.
 
         <p>Previously, I earned my B.S. in Computer Science and Applied Mathematics at <a href="https://www.unc.edu">UNC Chapel Hill</a>, was a visiting undergraduate at <a href="https://www.rice.edu">Rice University</a> and <a href="https://www.usc.edu">USC</a>, then later a visiting graduate student at <a href="https://dbmi.hms.harvard.edu">Harvard Medical School</a>.</p>
 
-        <p>Outside the lab, I enjoy traveling, nature, learning the bass guitar, and <a href="photos.html">photography</a>!</p>
+        <p>Outside the lab, I enjoy traveling, nature, learning the bass guitar, and <a href="photos/photos.html">photography</a>!</p>
             
       </div>
     
-      <!-- <div class="p2-portrait" data-src="andrea.jpg">
-        <img class="p2-bg" src="andrea.jpg" alt="Andrea background">
+      <!-- <div class="p2-portrait" data-src="resources/andrea.jpg">
+        <img class="p2-bg" src="resources/andrea.jpg" alt="Andrea background">
         <canvas class="p2-fg" width="1024" height="1024" aria-label="Andrea foreground"></canvas>
       </div>
 
@@ -93,7 +96,7 @@
       <div class="projects-grid"></div>
 
       <div style="margin: 50px;"></div>
-      <a href="projects.html" style="font-size:20px; margin-top: 20px;">See All Projects...</a>
+      <a href="projects/projects.html" style="font-size:20px; margin-top: 20px;">See All Projects...</a>
     </section>
 
     <!-- Featured Papers -->
@@ -102,7 +105,7 @@
       <br>
       <div class="w3-center"><h2>Featured Papers</h2></div>
       <table class="featured-papers" width="100%" cellspacing="0" cellpadding="40"></table>
-      <a href="papers.html" style="font-size:20px; margin-top: 20px;">See All Papers...</a>
+      <a href="papers/papers.html" style="font-size:20px; margin-top: 20px;">See All Papers...</a>
 
     </section>
 
@@ -113,7 +116,7 @@
     </footer>
   </div>
 
-  <script src="site.js"></script>
+  <script src="resources/site.js"></script>
   <script>
     loadNavigation();
     setTimeout(() => window.dispatchEvent(new Event('resize')), 100);

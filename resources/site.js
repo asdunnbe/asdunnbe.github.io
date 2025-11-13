@@ -1,5 +1,31 @@
 const THEME_STORAGE_KEY = 'theme';
 
+const ROOT_BASE = (() => {
+  const base = document.body?.dataset?.root || '.';
+  const trimmed = base.replace(/\/+$/, '');
+  return trimmed.length ? trimmed : '.';
+})();
+
+function isExternalResource(path) {
+  if (!path) return true;
+  return /^(?:[a-z][a-z0-9+.-]*:)?\/\//i.test(path) ||
+         path.startsWith('mailto:') ||
+         path.startsWith('tel:') ||
+         path.startsWith('#') ||
+         path.startsWith('data:');
+}
+
+function resolvePath(path) {
+  if (!path || isExternalResource(path)) return path;
+  let target = path;
+  if (target.startsWith('./')) target = target.slice(2);
+  if (ROOT_BASE === '.' || ROOT_BASE === './') return target;
+  if (ROOT_BASE.endsWith('/')) {
+    return `${ROOT_BASE}${target}`;
+  }
+  return `${ROOT_BASE}/${target}`;
+}
+
 /* Apply initial theme (saved or system) ASAP */
 (function applyInitialTheme() {
   const root = document.documentElement;
@@ -58,21 +84,35 @@ function setupThemeToggle() {
 
 // ========== LOAD NAVIGATION ==========
 function loadNavigation() {
-  fetch("nav.html")
+  fetch(resolvePath("resources/nav.html"), { cache: "no-store" })
     .then(response => response.text())
     .then(html => {
       document.querySelectorAll("#nav-container").forEach(el => el.innerHTML = html);
+      rebaseNavLinks();
       highlightNav();
       setupThemeToggle();
     });
 }
 
+function rebaseNavLinks() {
+  document.querySelectorAll("#nav-container nav a").forEach(link => {
+    const raw = link.dataset.path || link.getAttribute("href");
+    if (!raw || isExternalResource(raw)) return;
+    link.setAttribute("href", resolvePath(raw));
+  });
+}
+
 // Highlight the nav link for the current page
 function highlightNav() {
-  const path = window.location.pathname.split("/").pop() || "index.html";
+  const currentPath = normalizePath(window.location.pathname);
   document.querySelectorAll("#nav-container nav a").forEach(link => {
-    const href = link.getAttribute("href");
-    if (href === path || href === path + "#") {
+    const target = link.dataset.path || link.getAttribute("href");
+    if (!target || isExternalResource(target)) {
+      link.classList.remove("active");
+      return;
+    }
+    const normalized = normalizePath(target);
+    if (normalized === currentPath) {
       link.classList.add("active");
     } else {
       link.classList.remove("active");
@@ -80,13 +120,29 @@ function highlightNav() {
   });
 }
 
+function normalizePath(path) {
+  if (!path) return "/";
+  let candidate = path;
+  if (!candidate.startsWith("http") && !candidate.startsWith("/")) {
+    candidate = `/${candidate}`;
+  }
+  try {
+    const url = new URL(candidate, window.location.origin);
+    candidate = url.pathname;
+  } catch (_) {
+    // fallback keeps current candidate
+  }
+  candidate = candidate.replace(/index\.html?$/i, "");
+  candidate = candidate.replace(/\/+$/, "");
+  return candidate === "" ? "/" : candidate;
+}
 
 
 // ========== LOAD NEWS ==========
 function loadNews(containerSelector = '.news-list') {
   const container = document.querySelector(containerSelector);
   if (!container) return;
-  fetch('news/news.json')
+  fetch(resolvePath('news/news.json'))
     .then(res => res.json())
     .then(items => {
       let hasHighlight = false;
@@ -128,15 +184,17 @@ function loadProjects(sectionId = "project-grid", featuredOnly = false) {
     return "fa fa-file-pdf-o";
   }
 
-  fetch("projects/projects.json")
+  fetch(resolvePath("projects/projects.json"))
     .then(res => res.json())
     .then(data => {
       const list = featuredOnly ? data.filter(p => p.featured) : data;
       list.forEach(p => {
+        const imagePath = resolvePath(`projects/${p.img}`);
         const linksHtml = p.links
           .map(l => {
             const icon = getIconClass(l.label);
-            return `<a href="${l.url}" target="_blank">
+            const href = isExternalResource(l.url) ? l.url : resolvePath(l.url);
+            return `<a href="${href}" target="_blank">
                       <i class="${icon}"></i> ${l.label}
                     </a>`;
           })
@@ -149,7 +207,7 @@ function loadProjects(sectionId = "project-grid", featuredOnly = false) {
         card.innerHTML = `
           <div class="flip-card-inner">
             <div class="flip-card-front">
-              <img src="projects/${p.img}" alt="${p.title}">
+              <img src="${imagePath}" alt="${p.title}">
               <h4>${frontTitle}</h4>
             </div>
             <div class="flip-card-back">
@@ -186,7 +244,7 @@ function loadPapers(preprintClass, publishedClass) {
   if (!preTable || !pubTable) return;
   preTable.classList.add('papers');
   pubTable.classList.add('papers');
-  fetch("papers/papers.json")
+  fetch(resolvePath("papers/papers.json"))
     .then(res => res.json())
     .then(data => {
       data.forEach(paper => {
@@ -196,7 +254,7 @@ function loadPapers(preprintClass, publishedClass) {
         tdImg.className = "thumbs";
         tdImg.style.width = "40%";
         const img = document.createElement("img");
-        img.src = `papers/${paper.img}`;         
+        img.src = resolvePath(`papers/${paper.img}`);         
         img.alt = paper.title;
         img.style.width = "100%";
         img.style.height = "auto";
@@ -206,7 +264,10 @@ function loadPapers(preprintClass, publishedClass) {
         tdDet.className = "detail";
         const authorsHtml = formatAuthors(paper.authors);
         const linksHtml = paper.links
-          .map(l => `[ <a href="${l.url}" target="_blank">${l.label}</a> ]`)
+          .map(l => {
+            const href = isExternalResource(l.url) ? l.url : resolvePath(l.url);
+            return `[ <a href="${href}" target="_blank">${l.label}</a> ]`;
+          })
           .join(' ');
         let html = `<p><b id="papertitle">${paper.title}</b><br>${authorsHtml}<br><i>${paper.status}</i><br>`;
         html += linksHtml;
@@ -226,7 +287,7 @@ function loadFeaturedPapers(tableId) {
   const table = document.getElementById(tableId);
   if (!table) return;
   table.classList.add('papers');
-  fetch("papers/papers.json")
+  fetch(resolvePath("papers/papers.json"))
     .then(res => res.json())
     .then(data => {
       data.filter(p => p.featured).forEach(paper => {
@@ -235,7 +296,7 @@ function loadFeaturedPapers(tableId) {
         tdImg.className = "thumbs";
         tdImg.style.width = "40%";
         const img = document.createElement("img");
-        img.src = `papers/${paper.img}`; 
+        img.src = resolvePath(`papers/${paper.img}`); 
         img.alt = paper.title;
         img.style.width = "100%";
         img.style.height = "auto";
@@ -244,7 +305,10 @@ function loadFeaturedPapers(tableId) {
         tdDet.className = "detail";
         const authorsHtml = formatAuthors(paper.authors);
         const linksHtml = paper.links
-          .map(l => `[ <a href="${l.url}" target="_blank">${l.label}</a> ]`)
+          .map(l => {
+            const href = isExternalResource(l.url) ? l.url : resolvePath(l.url);
+            return `[ <a href="${href}" target="_blank">${l.label}</a> ]`;
+          })
           .join(' ');
         let html = `<p><b id="papertitle">${paper.title}</b><br>${authorsHtml}<br><i>${paper.status}</i><br>`;
         html += linksHtml;
@@ -264,7 +328,7 @@ function loadFeaturedPapers(tableClass) {
   const table = document.querySelector(`table.${tableClass}`);
   if (!table) return;
   table.classList.add('papers');
-  fetch("papers/papers.json")
+  fetch(resolvePath("papers/papers.json"))
     .then(res => res.json())
     .then(data => {
       data.filter(p=>p.featured).forEach(paper => {
@@ -274,7 +338,7 @@ function loadFeaturedPapers(tableClass) {
         tdImg.className = "thumbs";
         tdImg.style.width = "40%";
         const img = document.createElement("img");
-        img.src = `papers/${paper.img}`; 
+        img.src = resolvePath(`papers/${paper.img}`); 
         img.alt = paper.title;
         img.style.width = "100%"; img.style.height = "auto";
         tdImg.appendChild(img);
@@ -283,7 +347,10 @@ function loadFeaturedPapers(tableClass) {
         tdDet.className = "detail";
         const authorsHtml = formatAuthors(paper.authors);
         const linksHtml = paper.links
-          .map(l => `[ <a href="${l.url}" target="_blank">${l.label}</a> ]`)
+          .map(l => {
+            const href = isExternalResource(l.url) ? l.url : resolvePath(l.url);
+            return `[ <a href="${href}" target="_blank">${l.label}</a> ]`;
+          })
           .join(' ');
         let html = `<p><b id="papertitle">${paper.title}</b><br>${authorsHtml}<br><i>${paper.status}</i><br>`;
         html += linksHtml;
