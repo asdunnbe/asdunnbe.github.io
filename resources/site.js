@@ -367,29 +367,55 @@ function loadFeaturedPapers(tableClass) {
 // ========== LOAD GALLERY ==========
 function loadPhotoGallery(folder = 'gallery/', count = 25, ext = '.png') {
   const grid = document.getElementById('photoGrid');
+  if (!grid) return;
+
   let placeLeft = true;
+  const stagedImages = [];
 
   for (let i = count; i > 0; i--) {
-    const src = `${folder}${i}${ext}`;
-    const img = new Image();
-    img.src = src;
+    const wrapper = document.createElement('div');
+    wrapper.classList.add('photo-item');
+
+    const img = document.createElement('img');
     img.alt = `Photo ${i}`;
+    img.loading = 'lazy';
+    img.decoding = 'async';
+    img.dataset.src = `${folder}${i}${ext}`;
 
-    img.onload = () => {
-      const wrapper = document.createElement('div');
-      wrapper.classList.add('photo-item');
-
+    img.addEventListener('load', () => {
       if (img.naturalWidth > img.naturalHeight) {
         wrapper.classList.add(placeLeft ? 'land-left' : 'land-right');
         placeLeft = !placeLeft;
       }
+    });
 
-      wrapper.appendChild(img);
-      grid.appendChild(wrapper);
-    };
+    img.addEventListener('error', () => {
+      console.warn(`Skipping missing image: ${img.dataset.src}`);
+      wrapper.remove();
+    });
 
-    img.onerror = () => {
-      console.warn(`Skipping missing image: ${src}`);
-    };
+    wrapper.appendChild(img);
+    grid.appendChild(wrapper);
+    stagedImages.push(img);
+  }
+
+  const activate = (imageEl) => {
+    if (!imageEl.dataset.src || imageEl.dataset.loaded) return;
+    imageEl.src = imageEl.dataset.src;
+    imageEl.dataset.loaded = '1';
+  };
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          activate(entry.target);
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '200px 0px' });
+    stagedImages.forEach(img => observer.observe(img));
+  } else {
+    stagedImages.forEach(activate);
   }
 }
