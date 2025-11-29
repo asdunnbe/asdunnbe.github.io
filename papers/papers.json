@@ -32,7 +32,7 @@
     "summary": "PPS-Ctrl fuses Stable Diffusion and ControlNet, guided by physics-informed shading for structure-preserving endoscopy image translation.",
     "img": "paper_images/pps-ctrl.png",
     "links": [
-      { "url": "https://asdunnbe.github.io/NFL-BA/NeurIPS2025_NFL_BA.pdf", "label": "Paper" }
+      { "url": "https://arxiv.org/abs/2504.17067", "label": "Paper" }
     ],
     "type": "preprint",
     "featured": true
