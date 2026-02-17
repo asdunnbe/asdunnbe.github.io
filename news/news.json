@@ -1,5 +1,15 @@
 [
   {
+    "date": "Feburary 2026",
+    "content": "Our papers <a href=\"https://asdunnbe.github.io\" target=\"_blank\">Seeing Down the Line</a> and <a href=\"https://asdunnbe.github.io\" target=\"_blank\">Rendering with a Gut Feeling</a> were both accepted to <a href=\"https://2026.midl.io/\" target=\"_blank\">MiDL 2026</a>!",
+    "highlight": true
+  },
+  {
+    "date": "Janurary 2026",
+    "content": "This summer, I'll be interning at <a href=\"https://a2zradiology.ai\" target=\"_blank\">a2zradiology.ai</a> as an ML Scientist!",
+    "highlight": false
+  },
+  {
     "date": "September 2025",
     "content": "Our paper <a href=\"https://asdunnbe.github.io/NFL-BA/\" target=\"_blank\">NFL-BA</a> was accepted to <a href=\"https://neurips.cc\" target=\"_blank\">NeurIPS 2025</a>!",
     "highlight": true
