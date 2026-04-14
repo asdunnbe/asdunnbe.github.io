@@ -1,5 +1,10 @@
 [
   {
+    "date": "April 2026",
+    "content": "This fall, I'll be joining Harvard to pursue my PhD in <a href=\"https://dbmi.hms.harvard.edu/education/phd-program/ai-medicine-phd-track\" target=\"_blank\">AI in Medicine</a>!",
+    "highlight": false
+  },
+  {
     "date": "Feburary 2026",
     "content": "Our papers <a href=\"https://asdunnbe.github.io\" target=\"_blank\">Seeing Down the Line</a> and <a href=\"https://asdunnbe.github.io\" target=\"_blank\">Rendering with a Gut Feeling</a> were both accepted to <a href=\"https://2026.midl.io/\" target=\"_blank\">MiDL 2026</a>!",
     "highlight": true
