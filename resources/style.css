@@ -1,9 +1,11 @@
 /* ===== Theme Tokens ===== */
 :root {
-  --primary-blue: #2196F3;
-  --hover-blue: #2195f313;
-  --hover-blue-mid: #2195f35b;
-  --hover-blue-2: #2195f391;
+  --primary: #2196F3;
+  --hover: #2195f313;
+  --hover-2: #2195f391;
+  /* --primary: #e8213f;
+  --hover: #A51C3013;     
+  --hover-2: #c2213991; */
 
   /* base (light by default) */
   --bg: #ffffff;
@@ -63,8 +65,8 @@ p > b,
 p > strong {
   font-weight: 500;
 }
-a { text-decoration: none; color: var(--primary-blue); }
-a:hover { color: var(--hover-blue-2); }
+a { text-decoration: none; color: var(--primary); }
+a:hover { color: var(--hover-2); }
 
 .container {
   max-width: 990px;
@@ -135,17 +137,17 @@ nav.w3-bar.site-nav {
 
 /* Nav items */
 nav .w3-bar-item { font-weight: 400; color: var(--nav-text); }
-nav .w3-right    { margin-left: auto; font-size: 1rem; color: var(--primary-blue); }
-nav .w3-right:hover { background-color: transparent!important; color: var(--hover-blue-2)!important; }
+nav .w3-right    { margin-left: auto; font-size: 1rem; color: var(--primary); }
+nav .w3-right:hover { background-color: transparent!important; color: var(--hover-2)!important; }
 nav .w3-bar-item,
 nav .w3-bar-item.w3-button,
 nav .theme-toggle {
   background-color: transparent!important; /* keep every control glass over the nav */
 }
-nav .w3-bar-item.w3-button:hover { background-color: transparent!important; color: var(--primary-blue)!important; }
-nav .w3-bar-item.active { color: var(--primary-blue); }
+nav .w3-bar-item.w3-button:hover { background-color: transparent!important; color: var(--primary)!important; }
+nav .w3-bar-item.active { color: var(--primary); }
 nav .w3-bar-item.active:hover,
-nav .w3-bar-item:not(.active):hover { color: var(--hover-blue-2)!important; }
+nav .w3-bar-item:not(.active):hover { color: var(--hover-2)!important; }
 
 section { margin-bottom: 3rem; }
 
@@ -202,7 +204,7 @@ section { margin-bottom: 3rem; }
   white-space: nowrap;
   justify-content: center;
 }
-.profile-header .contact-link:hover { color: var(--primary-blue); }
+.profile-header .contact-link:hover { color: var(--primary); }
 
 /* Mobile override */
 @media (max-width: 800px) {
@@ -277,7 +279,7 @@ h2 { font-size: 35px; text-align: center; color: var(--text);}
   padding: 1rem;
   box-shadow: var(--card-shadow);
   border: 1px solid rgba(255,255,255,0.06);
-  background-color: var(--hover-blue);
+  background-color: var(--hover);
   transition: background-color .3s;
 }
 
@@ -290,16 +292,16 @@ h2 { font-size: 35px; text-align: center; color: var(--text);}
 }
 .flip-card-front img {
   width: 100%;
-  max-height: 100%;
+  aspect-ratio: 1;
   object-fit: cover;
-  flex: 1 1 auto;
+  flex: none;
   border-radius: 4%;
 }
 .flip-card-front h4 {
   margin: 0;
   font-weight: 500;
   text-align: center;
-  color: var(--primary-blue);
+  color: var(--primary);
 }
 
 /* Back: title, desc, links */
@@ -307,14 +309,14 @@ h2 { font-size: 35px; text-align: center; color: var(--text);}
 .flip-card-back h4 {
   margin: .75rem 0 .5rem;
   font-weight: 400;
-  color: var(--primary-blue);
+  color: var(--primary);
 }
 .flip-card-back .links { display: flex; gap: 1rem; margin-top: auto; margin-bottom: 0.5rem;}
-.flip-card-back .links a { color: var(--primary-blue); text-decoration: none; font-weight: 400; }
-.flip-card-back .links a:hover { color: var(--hover-blue-mid); }
+.flip-card-back .links a { color: var(--primary); text-decoration: none; font-weight: 400; }
+.flip-card-back .links a:hover { color: var(--hover-2); }
 
 /* Papers table */
-#papertitle { color: var(--primary-blue); font-size: 20px; margin: 0; padding: 0; }
+#papertitle { color: var(--primary); font-size: 20px; margin: 0; padding: 0; }
 table.featured-papers,
 table.papers {
   width: 100%;

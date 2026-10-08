@@ -1,5 +1,55 @@
 [
   {
+    "title": "Understanding Model Behavior in Monocular Polyp Sizing",
+    "authors": "Xinqi (Ana) Xiong, Andrea Dunn Beltran, Jun Myeong Choi, Sarah K. McGill, Marc Niethammer, Roni Sengupta",
+    "status": "MICCAI 2026",
+    "summary": "A diagnostic audit of monocular polyp size classification showing models lean on examination-behavior cues rather than true metric scale.",
+    "img": "paper_images/polyp-sizing.png",
+    "links": [
+      { "url": "https://arxiv.org/abs/2605.20461", "label": "Paper" },
+      { "url": "https://github.com/anaxqx/polyp-sizing-audit", "label": "Code" }
+    ],
+    "type": "published",
+    "featured": false
+  },
+  {
+    "title": "Stop Holding Your Breath: CT-Informed Gaussian Splatting for Dynamic Bronchoscopy",
+    "authors": "Andrea Dunn Beltran, Daniel Rho, Aarav Mehta, Xinqi (Ana) Xiong, Raúl San José Estépar, Ron Alterovitz, Marc Niethammer, Roni Sengupta",
+    "status": "Arxiv 2026",
+    "summary": "We use paired inhale-exhale CTs to reduce respiratory motion to a single breathing phase, enabling deformation-aware bronchoscopic reconstruction without breath-holds.",
+    "img": "paper_images/respire.png",
+    "links": [
+      { "url": "https://arxiv.org/abs/2604.28179", "label": "Paper" },
+      { "url": "https://asdunnbe.github.io/RESPIRE/", "label": "Project Page" }
+    ],
+    "type": "preprint",
+    "featured": false
+  },
+  {
+    "title": "Seeing Down the Line: Endoscopic Reconstruction with Centerline Constraints",
+    "authors": "Andrea Dunn Beltran, Romain Hardy, Pranav Rajpurkar",
+    "status": "MIDL 2026",
+    "summary": "We add an online centerline and tubular coordinate system to Gaussian endoscopic reconstruction to regularize colon geometry and quantify inspected coverage.",
+    "img": "paper_images/centerline.png",
+    "links": [
+      { "url": "https://openreview.net/forum?id=qFr9oMgEWQ", "label": "Paper" }
+    ],
+    "type": "published",
+    "featured": true
+  },
+  {
+    "title": "Rendering with a Gut Feeling: Depth-Guided Triangle Splatting for Physically Consistent Colonoscopic Reconstruction",
+    "authors": "Romain Hardy, Andrea Dunn Beltran, Todd A. Brenner, Tyler M. Berzin, Pranav Rajpurkar",
+    "status": "MIDL 2026",
+    "summary": "GutSee combines affine-invariant depth supervision with a coaxial spotlight illumination model for triangle-splatting colonoscopy reconstruction.",
+    "img": "paper_images/gutsee.png",
+    "links": [
+      { "url": "https://openreview.net/forum?id=6hdDuJ8JLd", "label": "Paper" }
+    ],
+    "type": "published",
+    "featured": false
+  },
+  {
     "title": "NFL-BA: Improving Endoscopic SLAM with Near-Field Light Bundle Adjustment",
     "authors": "Andrea Dunn Beltran*, Daniel Rho*, Marc Niethammer, Roni Sengupta",
     "status": "NeurIPS 2025",
@@ -23,7 +73,7 @@
       { "url": "https://noahfrahm.github.io/VIN-NBVProjectPage/", "label": "Project Page" }
     ],
     "type": "preprint",
-    "featured": true
+    "featured": false
   },
   {
     "title": "PPS-Ctrl: Controllable Sim-to-Real Translation for Colonoscopy Depth Estimation",
@@ -35,7 +85,7 @@
       { "url": "https://arxiv.org/abs/2504.17067", "label": "Paper" }
     ],
     "type": "preprint",
-    "featured": true
+    "featured": false
   },
   {
     "title": "Modulation of tau tubulin kinases (TTBK1 and TTBK2) impacts ciliogenesis",

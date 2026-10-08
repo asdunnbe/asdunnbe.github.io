@@ -1,9 +1,36 @@
 [
   {
+    "title": "Robotic Suction for Assistive Surgery",
+    "img": "project_images/robotics.png",
+    "desc": "I am developing a robotic suction assistant for procedural surgery, aimed at taking over routine suction tasks to support surgeons during procedures. More details coming soon!",
+    "links": [{ "url": "", "label": "Coming soon!" }],
+    "featured": true
+  },
+  {
+    "title": "Colon-Aware Reconstruction for Colonoscopy",
+    "img": "project_images/centerline.png",
+    "desc": "We make endoscopic splatting reconstructions colon-aware: an online centerline and tubular coordinates regularize the map and track inspected coverage, while depth-guided triangle splatting with a coaxial spotlight model yields physically consistent geometry.",
+    "links": [
+      { "url": "https://openreview.net/forum?id=qFr9oMgEWQ", "label": "Centerline Paper" },
+      { "url": "https://openreview.net/forum?id=6hdDuJ8JLd", "label": "GutSee Paper" }
+    ],
+    "featured": false
+  },
+  {
+    "title": "Understanding Monocular Polyp Sizing",
+    "img": "project_images/polyp.png",
+    "desc": "A diagnostic audit of polyp size classification across datasets, architectures, and input modalities, showing that models rely on examination-behavior cues rather than metric scale, and quantifying how much true scale information would help.",
+    "links": [
+      { "url": "https://arxiv.org/abs/2605.20461", "label": "Paper" },
+      { "url": "https://github.com/anaxqx/polyp-sizing-audit", "label": "Code" }
+    ],
+    "featured": false
+  },
+  {
     "title": "4D Reconstructions for Bronchoscopies",
     "img": "project_images/bronch.png",
     "desc": "We are creating a synthetic dataset of bronchoscopic videos in dynamically breathing lung models and designing a 4D reconstruction pipeline that leverages geometric deformation cues and temporal alignment.",
-    "links": [{ "url": "", "label": "Coming soon!" }],
+    "links": [{ "url": "https://asdunnbe.github.io/RESPIRE/RESPIRE.pdf", "label": "Paper" }],
     "featured": true
   },
   {
