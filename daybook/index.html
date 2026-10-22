@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Daybook</title>
+  <!-- Home-screen launcher for Daybook (a private claude.ai artifact); carries the duck icon claude.ai can't. -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Daybook">
+  <link rel="apple-touch-icon" href="../resources/rubber-duck.png">
+  <link rel="icon" type="image/png" href="../resources/rubber-duck.png">
+  <style>
+    :root { --bg:#fff; --text:#0b0b0b; --muted:#777; --primary:#2196F3; }
+    @media (prefers-color-scheme: dark) { :root { --bg:#0b0b0b; --text:#f5f7fa; --muted:#c4c7cc; } }
+    body { margin:0; min-height:100vh; display:grid; place-items:center; background:var(--bg); color:var(--text);
+      font:300 17px/1.5 "HelveticaNeue Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,sans-serif; padding:16px; text-align:center; }
+    img { width:72px; height:72px; }
+    a { display:inline-block; margin-top:16px; padding:12px 22px; border:1px solid var(--primary); border-radius:8px; color:var(--primary); text-decoration:none; }
+    p { color:var(--muted); font-size:14px; max-width:320px; }
+  </style>
+</head>
+<body>
+  <main>
+    <img src="../resources/rubber-duck.png" alt="">
+    <div><a id="open" href="https://claude.ai/artifact/6S1Rr234oe3vPkeSGAdCzY">Open Daybook</a></div>
+    <p>To get the duck on your home screen: Share → Add to Home Screen on this page.</p>
+  </main>
+  <script>
+    // Opened from the home-screen icon: go straight to Daybook. In a normal tab, stay here so "Add to Home Screen" captures this page.
+    if (navigator.standalone || matchMedia('(display-mode: standalone)').matches) location.replace(document.getElementById('open').href);
+  </script>
+</body>
+</html>
