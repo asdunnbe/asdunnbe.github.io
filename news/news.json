@@ -1,5 +1,10 @@
 [
   {
+    "date": "June 2026",
+    "content": "Our paper <a href=\"https://arxiv.org/abs/2605.20461\" target=\"_blank\">Understanding Model Behavior in Monocular Polyp Sizing</a> was accepted to <a href=\"https://neurips.cc\" target=\"_blank\">MICCAI 2026</a>!",
+    "highlight": true
+  },
+  {
     "date": "April 2026",
     "content": "This fall, I'll be joining Harvard to pursue my PhD in <a href=\"https://dbmi.hms.harvard.edu/education/phd-program/ai-medicine-phd-track\" target=\"_blank\">AI in Medicine</a>!",
     "highlight": false
